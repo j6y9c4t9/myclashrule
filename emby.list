@@ -1,65 +1,64 @@
 #用于clash
-payload:
-    #tank服
-  - DOMAIN-SUFFIX,bingqilin.me  
-  - DOMAIN-SUFFIX,tank88.top  
-  - DOMAIN-SUFFIX,tank66.top
-  - DOMAIN-SUFFIX,cs.tank88.top  
-  #misakaf服
-  - DOMAIN-SUFFIX,misakaf.org  
-  - DOMAIN-KEYWORD,push-kr
-  #misty服
-  - DOMAIN-SUFFIX,misty.ltd  
-  #鑫澪服
-  - DOMAIN-SUFFIX,cf.zi0.icu 
-   #星光服
-  - DOMAIN,free.emby.eu.org
-  #树状图
-  - DOMAIN-SUFFIX,789.123456.al 
-  #hxd动漫服
-  - DOMAIN-SUFFIX,fuck.nvidia.rip 
-  #pilipili
-  - DOMAIN-KEYWORD,pilipiliultra
-  - DOMAIN,pilipili.mikuu.link 
-  #纸片人
-  - DOMAIN,embyplus.org
-  #蓝海
-  - DOMAIN-SUFFIX,public.emby.ws
-  #野兽餐厅
-  - DOMAIN-SUFFIX,emby.mius.uk
-  - DOMAIN-SUFFIX,emby.jiecaoyu.cn
-  - DOMAIN-SUFFIX,emby.ooii.net
-  #infinityfly
-  - DOMAIN-SUFFIX,nc1.infinityfly.top
-  #paul服
-  - DOMAIN-SUFFIX,imetyou.top
-  #垃圾影音
-  - DOMAIN,cf.xmsl.org
-  - DOMAIN,cf.gtlx.org
-  - DOMAIN,cfde.xmsl.org
-  - DOMAIN,de.xmsl.org
-  - DOMAIN,hd.xmsl.org
-  - DOMAIN,cfhd.xmsl.org
-  - DOMAIN,line.xmsl.org
-  - DOMAIN,ushd.xmsl.org
-  - DOMAIN,ee.xmsl.org
-  - IP-CIDR,89.58.63.237/24
-  #私服
-  - DOMAIN-SUFFIX,jzq.lol
-  #pandatv
-  - DOMAIN-SUFFIX,emby.at
-  #Temby
-  - DOMAIN,temby.285286.xyz
-  #酷安
-  - IP-CIDR,140.238.6.215/32,no-resolve
-  - IP-CIDR,94.16.122.183/32,no-resolve
-  - DOMAIN,kuan2.yutron.eu.org
-  #鹅城
-  - DOMAIN-SUFFIX,the98.ltd
-  - IP-CIDR,23.225.116.79/32,no-resolve
-  #ACA
-  - DOMAIN-SUFFIX,emby.aca.best
-  - DOMAIN-SUFFIX,porn.aca.best
-  #MJJ
-  - DOMAIN,direct.mjjemby.org
-  - DOMAIN,cf.mjjemby.org
+#tank服
+DOMAIN-SUFFIX,bingqilin.me  
+DOMAIN-SUFFIX,tank88.top  
+DOMAIN-SUFFIX,tank66.top
+DOMAIN-SUFFIX,cs.tank88.top  
+#misakaf服
+DOMAIN-SUFFIX,misakaf.org  
+DOMAIN-KEYWORD,push-kr
+#misty服
+DOMAIN-SUFFIX,misty.ltd  
+鑫澪服
+DOMAIN-SUFFIX,cf.zi0.icu 
+#星光服
+DOMAIN,free.emby.eu.org
+#树状图
+DOMAIN-SUFFIX,789.123456.al 
+#hxd动漫服
+DOMAIN-SUFFIX,fuck.nvidia.rip 
+#pilipili
+DOMAIN-KEYWORD,pilipiliultra
+DOMAIN,pilipili.mikuu.link 
+#纸片人
+DOMAIN,embyplus.org
+#蓝海
+DOMAIN-SUFFIX,public.emby.ws
+#野兽餐厅
+DOMAIN-SUFFIX,emby.mius.uk
+DOMAIN-SUFFIX,emby.jiecaoyu.cn
+DOMAIN-SUFFIX,emby.ooii.net
+#infinityfly
+DOMAIN-SUFFIX,nc1.infinityfly.top
+#paul服
+DOMAIN-SUFFIX,imetyou.top
+#垃圾影音
+DOMAIN,cf.xmsl.org
+DOMAIN,cf.gtlx.org
+DOMAIN,cfde.xmsl.org
+DOMAIN,de.xmsl.org
+DOMAIN,hd.xmsl.org
+DOMAIN,cfhd.xmsl.org
+DOMAIN,line.xmsl.org
+DOMAIN,ushd.xmsl.org
+DOMAIN,ee.xmsl.org
+IP-CIDR,89.58.63.237/24
+#私服
+DOMAIN-SUFFIX,jzq.lol
+#pandatv
+DOMAIN-SUFFIX,emby.at
+#Temby
+DOMAIN,temby.285286.xyz
+#酷安
+IP-CIDR,140.238.6.215/32,no-resolve
+IP-CIDR,94.16.122.183/32,no-resolve
+DOMAIN,kuan2.yutron.eu.org
+#鹅城
+DOMAIN-SUFFIX,the98.ltd
+IP-CIDR,23.225.116.79/32,no-resolve
+#ACA
+DOMAIN-SUFFIX,emby.aca.best
+DOMAIN-SUFFIX,porn.aca.best
+#MJJ
+DOMAIN,direct.mjjemby.org
+DOMAIN,cf.mjjemby.org
