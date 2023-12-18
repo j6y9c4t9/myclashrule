@@ -10,13 +10,14 @@
 
 ;设置规则标志位
 ruleset=👨‍💻 GitHub,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
-ruleset=🎯 国内流量,https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Inside.list
-ruleset=🚀 国外流量,https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Outside.list
+;ruleset=🎯 国内流量,https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Inside.list
+;ruleset=🚀 国外流量,https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Outside.list
 ruleset=🧚 ChatGPT,https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/ChatGPT.list
 ruleset=🧚 ChatGPT,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+ruleset=🎯 国内流量,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
 ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
 ruleset=🎯 国内流量,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
-ruleset=🚀 国外流量,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml
+;ruleset=🚀 国外流量,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml
 ruleset=🛸 IP归属地伪装,clash-classic:https://raw.githubusercontent.com/lwd-temp/anti-ip-attribution/main/generated/rule-provider.yaml
 ;ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 ;ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
@@ -32,6 +33,8 @@ ruleset=🎦 HBOGO,clash-classic:https://raw.githubusercontent.com/blackmatrix7/
 ruleset=🎦 HBOGO,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBOAsia/HBOAsia.yaml
 ruleset=🎦 HBOMAX,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBOUSA/HBOUSA.yaml
 ruleset=🍎 AppleTV,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppleTV/AppleTV.yaml
+ruleset=🍎 苹果服务,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
+ruleset=🍎 苹果服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
 ruleset=🎬 EMBY,https://raw.githubusercontent.com/ddgksf2013/Filter/master/Emby.list
 ruleset=🎬 EMBY,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml
 ruleset=📺 巴哈姆特,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml
@@ -46,7 +49,6 @@ ruleset=📢 谷歌FCM,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/
 ruleset=🎯 国内流量,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
 ruleset=Ⓜ️ 微软云盘,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml
 ruleset=Ⓜ️ 微软服务,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
-ruleset=🍎 苹果服务,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
 ruleset=📲 Telegram,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
 ruleset=🤖 Discord,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.yaml
 ruleset=🎮 游戏平台,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml
