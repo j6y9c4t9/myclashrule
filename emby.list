@@ -1,6 +1,6 @@
 #用于clash
 #charontv
-#DOMAIN-SUFFIX,charontv.com
+DOMAIN-SUFFIX,charontv.com
 #一些其他需要直连的
 DOMAIN-KEYWORD,jsdelivr.net
 DOMAIN-KEYWORD,fastgit.org
