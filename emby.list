@@ -2,6 +2,6 @@
 #charontv
 DOMAIN-SUFFIX,charontv.com
 #一些其他需要直连的
-DOMAIN-KEYWORD,jsdelivr.net
-DOMAIN-KEYWORD,fastgit.org
+#DOMAIN-KEYWORD,jsdelivr.net
+#DOMAIN-KEYWORD,fastgit.org
 DOMAIN-KEYWORD,liquipedia.net
