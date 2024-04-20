@@ -4,6 +4,6 @@ DOMAIN-SUFFIX,charontv.com
 #一些其他需要直连的
 #DOMAIN-KEYWORD,jsdelivr.net
 #DOMAIN-KEYWORD,fastgit.org
-DOMAIN-KEYWORD,liquipedia.net
+#DOMAIN-KEYWORD,liquipedia.net
 #magpie
 DOMAIN-KEYWORD,magpie
