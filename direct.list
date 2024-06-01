@@ -8,4 +8,7 @@ DOMAIN-KEYWORD,acaisbest.com
 DOMAIN-KEYWORD,12345.al
 #magpie
 DOMAIN-KEYWORD,magpie
-
+#一些需要直连的订阅转换地址
+DOMAIN-KEYWORD,api.wcc.best
+DOMAIN-KEYWORD,api.ytools.cc
+DOMAIN-KEYWORD,url.v1.mk
