@@ -29,7 +29,7 @@ ruleset=🐟 漏网之鱼,[]FINAL
 ;设置规则标志位
 
 ;设置分组标志位
-custom_proxy_group=🚀 国外流量`select`[]♻️ 自动选择`[]♻️ 日用自动选择`[]🔯 故障转移`[]🔮 负载均衡`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]🚁 Emby播放经济节点
+custom_proxy_group=🚀 国外流量`select`[]♻️ 自动选择`[]♻️ 日用自动选择`[]🔯 故障转移`[]🔮 负载均衡`[]✈️ 手动选择`[]🛩️ 手动选择备用
 custom_proxy_group=✈️ 手动选择`select`.*
 custom_proxy_group=🛩️ 手动选择备用`select`.*
 custom_proxy_group=🎯 国内流量`select`[]DIRECT`(CN|电信|联通|移动)`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择
@@ -37,7 +37,7 @@ custom_proxy_group=🐟 漏网之鱼`select`[]🚀 国外流量`[]🎯 国内流
 custom_proxy_group=💬 OpenAi`select`(美国|US|United States)`(日本|JP|Japan)`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择
 custom_proxy_group=📹 YouTube`select`[]🚀 国外流量`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择
 custom_proxy_group=🎥 Netflix`select`[]🚀 国外流量`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择`(新加坡|坡|狮城|SG|Singapore)`(台|新北|彰化|TW|Taiwan)`(港|HK|Hong Kong)
-custom_proxy_group=🎬 EMBY`select`[]🚀 国外流量`[]♻️ 自动选择`[]♻️ 日用自动选择`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]🚁 Emby播放经济节点
+custom_proxy_group=🎬 EMBY`select`[]🚁 Emby播放经济节点`[]🚀 国外流量`[]♻️ 自动选择`[]♻️ 日用自动选择`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]🚁 Emby播放经济节点
 custom_proxy_group=🎶 TikTok`select`[]🚀 国外流量`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择
 custom_proxy_group=🌍 国外媒体`select`[]🚀 国外流量`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择
 custom_proxy_group=🌏 国内媒体`select`[]🎯 国内流量`[]✈️ 手动选择`[]🛩️ 手动选择备用`[]♻️ 日用自动选择
