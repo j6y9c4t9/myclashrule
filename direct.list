@@ -2,11 +2,11 @@
 #DOMAIN-SUFFIX,jsdelivr.net
 #DOMAIN-SUFFIX,fastgit.org
 DOMAIN-SUFFIX,liquipedia.net
-DOMAIN-SUFFIX,aca.dog
+#DOMAIN-SUFFIX,aca.dog
 DOMAIN-SUFFIX,aca.best
 DOMAIN-SUFFIX,acaisbest.com
-DOMAIN-SUFFIX,12345.al
-DOMAIN-SUFFIX,digit77.com
+#DOMAIN-SUFFIX,12345.al
+#DOMAIN-SUFFIX,digit77.com
 #magpie
 DOMAIN-KEYWORD,magpie
 #一些需要直连的订阅转换地址
