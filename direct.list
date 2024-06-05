@@ -1,7 +1,7 @@
 #一些其他需要直连的
 #DOMAIN-SUFFIX,jsdelivr.net
 #DOMAIN-SUFFIX,fastgit.org
-DOMAIN-SUFFIX,liquipedia.net
+#DOMAIN-SUFFIX,liquipedia.net
 #DOMAIN-SUFFIX,aca.dog
 DOMAIN-SUFFIX,aca.best
 DOMAIN-SUFFIX,acaisbest.com
