@@ -55,7 +55,6 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-
 proxy-groups:
   - name: Proxy
     type: select
@@ -68,10 +67,9 @@ proxy-groups:
     proxies:
       - Auto
       - DIRECT
-     
   - name: Auto
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     use:
       - TaiWan
@@ -79,104 +77,112 @@ proxy-groups:
       - Hongkong
       - Japan
       - USA
-     
   - name: Apple
     type: select
-    proxies:
-      - DIRECT
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - DIRECT
+      - Auto
   - name: Bahamut
     type: select
-    proxies:
+    use:
       - TaiWan
   - name: BiliBili
     type: select
+    use:
+      - Hongkong
+      - Singapore
+      - Japan
+      - USA
+      - TaiWan   
     proxies:
       - DIRECT
       - Auto
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
   - name: OpenAI
     type: select
-    proxies:
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - Auto
   - name: Disney
     type: select
-    proxies:
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - Auto
   - name: DMM
     type: select
-    proxies:
+    use:
       - Japan
   - name: Netflix
     type: select
-    proxies:
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - Auto  
   - name: PayPal
     type: select
-    proxies:
-      - DIRECT
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
-      - TaiWan
+      - TaiWan 
+    proxies:
+      - DIRECT
+      - Auto
   - name: Steam
     type: select
-    proxies:
-      - DIRECT
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - DIRECT
+      - Auto
   - name: Google
     type: select
-    proxies:
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - Auto
   - name: Microsoft
     type: select
+    use:
+      - Hongkong
+      - Singapore
+      - Japan
+      - USA
+      - TaiWan
     proxies:
       - DIRECT
       - Auto
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
   - name: Telegram
     type: select
-    proxies:
+    use:
       - Hongkong
       - Singapore
       - Japan
@@ -184,13 +190,14 @@ proxy-groups:
       - TaiWan
   - name: YouTube
     type: select
-    proxies:
-      - Auto
+    use:
       - Hongkong
       - Singapore
       - Japan
       - USA
       - TaiWan
+    proxies:
+      - Auto
   - name: Lan
     type: select
     proxies:
