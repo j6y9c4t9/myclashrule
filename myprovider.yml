@@ -5,6 +5,17 @@ mode: rule
 log-level: info
 external-controller: :9090
 proxy-providers:
+ All:
+    type: http
+    path: ./ProxySet/FlyingBird/All.yaml
+    url: "机场订阅地址"
+    interval: 1800
+    filter: '*'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+proxy-providers:
  Hongkong:
     type: http
     path: ./ProxySet/FlyingBird/Hongkong.yaml
@@ -59,11 +70,7 @@ proxy-groups:
   - name: Proxy
     type: select
     use:
-      - TaiWan
-      - Singapore
-      - Hongkong
-      - Japan
-      - United States
+      - All
     proxies:
       - Auto
       - DIRECT
@@ -72,11 +79,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - TaiWan
-      - Singapore
-      - Hongkong
-      - Japan
-      - United States
+      - All
   - name: Apple
     type: select
     use:
