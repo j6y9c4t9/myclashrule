@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 external-controller: :9090
 proxy-providers:
-  Hongkong:
+ 🇭🇰 Hongkong:
     type: http
     path: ./ProxySet/FlyingBird/Hongkong.yaml
     url: "机场订阅地址"
@@ -15,7 +15,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  TaiWan:
+  🇨🇳 TaiWan:
     type: http
     path: ./ProxySet/FlyingBird/TaiWan.yaml
     url: "机场订阅地址"
@@ -25,7 +25,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  Singapore:
+  🇸🇬 Singapore:
     type: http
     path: ./ProxySet/FlyingBird/Singapore.yaml
     url: "机场订阅地址"
@@ -35,7 +35,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  Japan:
+  🇯🇵 Japan:
     type: http
     path: ./ProxySet/FlyingBird/Japan.yaml
     url: "机场订阅地址"
@@ -45,7 +45,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  USA:
+  🇺🇲 United States:
     type: http
     path: ./ProxySet/FlyingBird/USA.yaml
     url: "机场订阅地址"
@@ -59,11 +59,11 @@ proxy-groups:
   - name: Proxy
     type: select
     use:
-      - TaiWan
-      - Singapore
-      - Hongkong
-      - Japan
-      - USA
+      - 🇨🇳 TaiWan
+      - 🇸🇬 Singapore
+      - 🇭🇰 Hongkong
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
     proxies:
       - Auto
       - DIRECT
@@ -72,130 +72,130 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - TaiWan
-      - Singapore
-      - Hongkong
-      - Japan
-      - USA
+      - 🇨🇳 TaiWan
+      - 🇸🇬 Singapore
+      - 🇭🇰 Hongkong
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
   - name: Apple
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - DIRECT
       - Auto
   - name: Bahamut
     type: select
     use:
-      - TaiWan
+      - 🇨🇳 TaiWan
   - name: BiliBili
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan   
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan   
     proxies:
       - DIRECT
       - Auto
   - name: OpenAI
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - Auto
   - name: Disney
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - Auto
   - name: DMM
     type: select
     use:
-      - Japan
+      - 🇯🇵 Japan
   - name: Netflix
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - Auto  
   - name: PayPal
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan 
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan 
     proxies:
       - DIRECT
       - Auto
   - name: Steam
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - DIRECT
       - Auto
   - name: Google
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - Auto
   - name: Microsoft
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - DIRECT
       - Auto
   - name: Telegram
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
   - name: YouTube
     type: select
     use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - USA
-      - TaiWan
+      - 🇭🇰 Hongkong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇲 United States
+      - 🇨🇳 TaiWan
     proxies:
       - Auto
   - name: Lan
