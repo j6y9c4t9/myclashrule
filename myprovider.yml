@@ -15,7 +15,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  TaiWan:
+ TaiWan:
     type: http
     path: ./ProxySet/FlyingBird/TaiWan.yaml
     url: "机场订阅地址"
@@ -25,7 +25,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  Singapore:
+ Singapore:
     type: http
     path: ./ProxySet/FlyingBird/Singapore.yaml
     url: "机场订阅地址"
@@ -35,7 +35,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  Japan:
+ Japan:
     type: http
     path: ./ProxySet/FlyingBird/Japan.yaml
     url: "机场订阅地址"
@@ -45,7 +45,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  United States:
+ United States:
     type: http
     path: ./ProxySet/FlyingBird/USA.yaml
     url: "机场订阅地址"
