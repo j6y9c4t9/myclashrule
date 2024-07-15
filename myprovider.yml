@@ -81,125 +81,115 @@ proxy-groups:
       - All
   - name: Apple
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - DIRECT
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Bahamut
     type: select
-    use:
-      - TaiWan
+    proxies:
+      - 🇨🇳 Taiwan
   - name: BiliBili
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan   
-    proxies:
       - DIRECT
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: OpenAI
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Disney
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: DMM
     type: select
-    use:
-      - Japan
+    proxies:
+      - 🇯🇵 Japan
   - name: Netflix
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
-      - Auto  
+      - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
+  - name: PayPal
   - name: PayPal
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan 
     proxies:
       - DIRECT
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Steam
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - DIRECT
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Google
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Microsoft
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - DIRECT
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Telegram
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
+    proxies:
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: YouTube
     type: select
-    use:
-      - Hongkong
-      - Singapore
-      - Japan
-      - United States
-      - TaiWan
     proxies:
       - Auto
+      - 🇭🇰 Hong Kong
+      - 🇸🇬 Singapore
+      - 🇯🇵 Japan
+      - 🇺🇸 United States
+      - 🇨🇳 Taiwan
   - name: Lan
     type: select
     proxies:
@@ -208,7 +198,36 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
- 
+  - name: 🇭🇰 Hong Kong
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - Hongkong
+  - name: 🇭🇰 Hong Kong
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - TaiWan
+  - name: 🇸🇬 Singapore
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - Singapore
+  - name: 🇯🇵 Japan
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - Japan
+  - name: 🇺🇸 United States
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - United States
 rules:
   - RULE-SET,Apple_Classical,Apple
   - RULE-SET,BiliBili,BiliBili
