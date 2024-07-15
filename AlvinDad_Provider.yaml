@@ -20,6 +20,11 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
       - ✈️ 手动选择
   - name: ✈️ 手动选择
     type: select
@@ -63,7 +68,7 @@ proxy-groups:
     type: select
     proxies:
       - 🚁 Emby专用节点
-      - ♻️ 自动选择
+      - 🚀 国外流量
       - 🎯 国内流量
   - name: 🎵 Spotify
     type: select
