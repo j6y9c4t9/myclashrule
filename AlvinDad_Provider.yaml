@@ -28,7 +28,6 @@ proxy-groups:
       - ✈️ 手动选择
   - name: ✈️ 手动选择
     type: select
-    tolerance: 50
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     use:
       - All
