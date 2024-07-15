@@ -324,7 +324,7 @@ rule-providers:
     path: ./providers/rule-provider_Download.yaml
     interval: 86400
 rules:
-  - RULE-SET,Github,👨‍💻 GitHub
+  - RULE-SET,GitHub,👨‍💻 GitHub
   - RULE-SET,Provider_direct,🎯 国内流量
   - RULE-SET,Provider_proxy,🚀 国外流量
   - RULE-SET,OpenAI,💬 Ai
