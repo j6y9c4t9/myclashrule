@@ -290,7 +290,7 @@ rule-providers:
   Emby:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Rules/Emby.list
+    url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
     path: ./providers/rule-provider_Emby.yaml
     interval: 86400
   GlobalMedia_Classical:
