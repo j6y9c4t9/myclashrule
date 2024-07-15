@@ -167,16 +167,16 @@ proxy-groups:
     use:
       - All
 rules:
-  - RULE-SET,Apple_Classical,🍎 苹果服务
-  - RULE-SET,BiliBili,BiliBili
+  - RULE-SET,Github,👨‍💻 GitHub
+  - RULE-SET,Provider_direct,🎯 国内流量
+  - RULE-SET,Provider_proxy,🚀 国外流量
   - RULE-SET,OpenAI,💬 Ai
-  - RULE-SET,Disney,Disney
-  - RULE-SET,Netflix_Classical,🎥 Netflix
-  - RULE-SET,PayPal,PayPal
-  - RULE-SET,Google,Google
-  - RULE-SET,YouTube,📹 YouTube
-  - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,Claude,💬 Ai
+  - RULE-SET,Gemini,💬 Ai
+  - RULE-SET,Copilot,💬 Ai
+  - RULE-SET,Lan,🎯 国内流量
+  - RULE-SET,Direct,🎯 国内流量
+  - RULE-SET,Telegram,�🎯 国内流量
   - RULE-SET,Steam,Steam
   - RULE-SET,Bahamut,Bahamut
   - RULE-SET,DMM,DMM
