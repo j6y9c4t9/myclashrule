@@ -16,139 +16,116 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 300
 proxy-groups:
-  - name: Proxy
+  - name: 🚀 国外流量
     type: select
+    proxies:
+      - ♻️ 自动选择
+      - ✈️ 手动选择
+  - name: ✈️ 手动选择
+    type: select
+    tolerance: 50
+    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     use:
       - All
-    proxies:
-      - Auto
-      - DIRECT
-  - name: Auto
-    type: fallback
+  - name: ♻️ 自动选择
+    type: url-test
+    tolerance: 50
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
       - All
-  - name: Apple
+  - name: 🎯 国内流量
     type: select
     proxies:
       - DIRECT
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Bahamut
+  - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🇨🇳 Taiwan
-  - name: BiliBili
+      - 🎯 国内流量
+      - 🚀 国外流量
+  - name: 💬 Ai
     type: select
     proxies:
-      - DIRECT
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: OpenAI
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇸🇬 狮城节点
+  - name: 📹 YouTube
     type: select
     proxies:
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Disney
+      - ♻️ 自动选择
+  - name: 🎥 Netflix
     type: select
     proxies:
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: DMM
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+  - name: 🎬 EMBY
     type: select
     proxies:
-      - 🇯🇵 Japan
-  - name: Netflix
+      - 🚁 Emby专用节点
+      - ♻️ 自动选择
+      - 🎯 国内流量
+  - name: 🎵 Spotify
     type: select
     proxies:
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: PayPal
+      - 🚀 国外流量
+      - 🎯 国内流量
+      - ♻️ 自动选择
+  - name: 🎶 TikTok
     type: select
     proxies:
-      - DIRECT
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Steam
+      - 🚀 国外流量
+      - 🎯 国内流量
+      - ✈️ 手动选择
+  - name: 🌍 国外媒体
     type: select
     proxies:
-      - DIRECT
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Google
+      - 🚀 国外流量
+      - 🎯 国内流量
+  - name: 🌏 国内媒体
     type: select
     proxies:
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Microsoft
+      - 🎯 国内流量
+  - name: 📲 Telegram
     type: select
     proxies:
-      - DIRECT
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Telegram
+      - 🚀 国外流量
+      - 🇸🇬 狮城节点
+  - name: 👨‍💻 GitHub
     type: select
     proxies:
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: YouTube
+      - 🚀 国外流量
+      - 🎯 国内流量
+  - name: 🍎 苹果服务
     type: select
     proxies:
-      - Auto
-      - 🇭🇰 Hong Kong
-      - 🇸🇬 Singapore
-      - 🇯🇵 Japan
-      - 🇺🇸 United States
-      - 🇨🇳 Taiwan
-  - name: Lan
+      - 🎯 国内流量
+      - 🚀 国外流量
+  - name: Ⓜ️ 微软云盘
     type: select
     proxies:
-      - DIRECT
-  - name: ChinaMax
+      - 🚀 国外流量
+      - 🎯 国内流量
+  - name: Ⓜ️ 微软EDGE
     type: select
     proxies:
-      - DIRECT
-  - name: 🇭🇰 Hong Kong
+      - 🎯 国内流量
+      - 🚀 国外流量
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 国内流量
+      - 🚀 国外流量
+  - name: 🚁 Emby专用节点
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    filter: 'Emby|emby|0.0x|0.01x'
+    exclude-filter: '3.0x'
+    interval: 300
+    use:
+      - All
+  - name: 🇭🇰 香港节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
@@ -156,7 +133,7 @@ proxy-groups:
     interval: 300
     use:
       - All
-  - name: 🇨🇳 Taiwan
+  - name: 🇨🇳 台湾节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
@@ -164,7 +141,7 @@ proxy-groups:
     interval: 300
     use:
       - All
-  - name: 🇸🇬 Singapore
+  - name: 🇸🇬 狮城节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
@@ -172,7 +149,7 @@ proxy-groups:
     interval: 300
     use:
       - All
-  - name: 🇯🇵 Japan
+  - name: 🇯🇵 日本节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
@@ -180,7 +157,7 @@ proxy-groups:
     interval: 300
     use:
       - All
-  - name: 🇺🇸 United States
+  - name: 🇺🇲 美国节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
@@ -189,23 +166,48 @@ proxy-groups:
     interval: 300
     use:
       - All
+
+
+
+  - name: Google
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+
+
+
+  - name: Lan
+    type: select
+    proxies:
+      - 🎯 国内流量
+  - name: ChinaMax
+    type: select
+    proxies:
+      - 🎯 国内流量
+
 rules:
-  - RULE-SET,Apple_Classical,Apple
+  - RULE-SET,Apple_Classical,🍎 苹果服务
   - RULE-SET,BiliBili,BiliBili
-  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,OpenAI,💬 Ai
   - RULE-SET,Disney,Disney
-  - RULE-SET,Netflix_Classical,Netflix
+  - RULE-SET,Netflix_Classical,🎥 Netflix
   - RULE-SET,PayPal,PayPal
   - RULE-SET,Google,Google
-  - RULE-SET,YouTube,YouTube
+  - RULE-SET,YouTube,📹 YouTube
   - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Telegram,📲 Telegram
   - RULE-SET,Steam,Steam
   - RULE-SET,Bahamut,Bahamut
   - RULE-SET,DMM,DMM
   - RULE-SET,Lan,Lan
   - RULE-SET,ChinaMax_Classical_No_IPv6,ChinaMax
-  - MATCH,Proxy
+  - GEOIP,cn,🎯 国内流量
+  - MATCH,🐟 漏网之鱼
 rule-providers:
   Apple_Classical:
     type: http
