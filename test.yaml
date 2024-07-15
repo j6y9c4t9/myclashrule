@@ -176,12 +176,23 @@ rules:
   - RULE-SET,Copilot,💬 Ai
   - RULE-SET,Lan,🎯 国内流量
   - RULE-SET,Direct,🎯 国内流量
-  - RULE-SET,Telegram,�🎯 国内流量
-  - RULE-SET,Steam,Steam
-  - RULE-SET,Bahamut,Bahamut
-  - RULE-SET,DMM,DMM
-  - RULE-SET,Lan,Lan
-  - RULE-SET,ChinaMax_Classical_No_IPv6,ChinaMax
+  - RULE-SET,GoogleCN,🎯 国内流量
+  - RULE-SET,PikPak,🚀 国外流量
+  - RULE-SET,MicrosoftEdge,Ⓜ️ 微软EDGE
+  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,YouTube,📹 YouTube
+  - RULE-SET,Netflix,🎥 Netflix
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,TikTok,🎶 TikTok
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Emby,🎬 EMBY
+  - RULE-SET,GlobalMedia_Classical,🌍 国外媒体
+  - RULE-SET,ChinaMedia,🌏 国内媒体
+  - RULE-SET,Proxy,🚀 国外流量
+  - RULE-SET,China,🎯 国内流量
+  - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
   - MATCH,🐟 漏网之鱼
 rule-providers:
