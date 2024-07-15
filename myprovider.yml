@@ -95,6 +95,7 @@ proxy-groups:
       - 🇨🇳 Taiwan
   - name: BiliBili
     type: select
+    proxies:
       - DIRECT
       - Auto
       - 🇭🇰 Hong Kong
