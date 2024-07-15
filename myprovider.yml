@@ -7,7 +7,7 @@ external-controller: :9090
 proxy-providers:
  All:
     type: http
-    path: ./ProxySet/Alvin/Hongkong.yaml
+    path: ./ProxySet/Alvin/All.yaml
     url: "机场订阅地址"
     interval: 1800
     filter: ''
