@@ -203,7 +203,7 @@ proxy-groups:
     interval: 300
     use:
       - Hongkong
-  - name: 🇭🇰 Hong Kong
+  - name: 🇨🇳 Taiwan
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
