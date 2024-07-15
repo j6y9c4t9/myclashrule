@@ -134,7 +134,6 @@ proxy-groups:
       - 🇺🇸 United States
       - 🇨🇳 Taiwan
   - name: PayPal
-  - name: PayPal
     type: select
     proxies:
       - DIRECT
