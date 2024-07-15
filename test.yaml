@@ -15,56 +15,6 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
- Hongkong:
-    type: http
-    path: ./ProxySet/Alvin/Hongkong.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- TaiWan:
-    type: http
-    path: ./ProxySet/Alvin/TaiWan.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '台|新北|彰化|TW|Taiwan'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- Singapore:
-    type: http
-    path: ./ProxySet/Alvin/Singapore.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '新加坡|坡|狮城|SG|Singapore'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- Japan:
-    type: http
-    path: ./ProxySet/Alvin/Japan.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- United States:
-    type: http
-    path: ./ProxySet/Alvin/USA.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
 proxy-groups:
   - name: Proxy
     type: select
