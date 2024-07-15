@@ -7,60 +7,10 @@ external-controller: :9090
 proxy-providers:
  All:
     type: http
-    path: ./ProxySet/Alvin/All.yaml
+    path: ./ProxySet/Alvin/ALL.yaml
     url: "机场订阅地址"
     interval: 1800
     filter: ''
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- Hongkong:
-    type: http
-    path: ./ProxySet/Alvin/Hongkong.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- TaiWan:
-    type: http
-    path: ./ProxySet/Alvin/TaiWan.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '台|新北|彰化|TW|Taiwan'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- Singapore:
-    type: http
-    path: ./ProxySet/Alvin/Singapore.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '新加坡|坡|狮城|SG|Singapore'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- Japan:
-    type: http
-    path: ./ProxySet/Alvin/Japan.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
- United States:
-    type: http
-    path: ./ProxySet/Alvin/USA.yaml
-    url: "机场订阅地址"
-    interval: 1800
-    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -201,33 +151,38 @@ proxy-groups:
   - name: 🇭🇰 Hong Kong
     type: url-test
     url: http://www.gstatic.com/generate_204
+    filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
     interval: 300
     use:
-      - Hongkong
+      - All
   - name: 🇨🇳 Taiwan
     type: url-test
     url: http://www.gstatic.com/generate_204
+    filter: '台|新北|彰化|TW|Taiwan'
     interval: 300
     use:
-      - TaiWan
+      - All
   - name: 🇸🇬 Singapore
     type: url-test
     url: http://www.gstatic.com/generate_204
+    filter: '新加坡|坡|狮城|SG|Singapore'
     interval: 300
     use:
-      - Singapore
+      - All
   - name: 🇯🇵 Japan
     type: url-test
     url: http://www.gstatic.com/generate_204
+    filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
     interval: 300
     use:
-      - Japan
+      - All
   - name: 🇺🇸 United States
     type: url-test
     url: http://www.gstatic.com/generate_204
+    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     interval: 300
     use:
-      - United States
+      - All
 rules:
   - RULE-SET,Apple_Classical,Apple
   - RULE-SET,BiliBili,BiliBili
