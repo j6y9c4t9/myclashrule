@@ -61,7 +61,6 @@ proxy-groups:
   - name: 🎬 EMBY
     type: select
     proxies:
-      - 🚁 Emby专用节点
       - ♻️ 自动选择
       - 🎯 国内流量
   - name: 🎵 Spotify
