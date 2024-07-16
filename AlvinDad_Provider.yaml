@@ -222,7 +222,7 @@ rule-providers:
   Direct:
     type: http
     behavior: classical
-    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Direct/Direct.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml
     path: ./providers/rule-provider_Direct.yaml
     interval: 86400
   GoogleCN:
@@ -315,11 +315,11 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml
     path: ./providers/rule-provider_Proxy_Classical.yaml
     interval: 86400
-  China:
+  China_Classical:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml
-    path: ./providers/rule-provider_China.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical.yaml
+    path: ./providers/rule-provider_China_Classical.yaml
     interval: 86400
   Download:
     type: http
@@ -352,7 +352,7 @@ rules:
   - RULE-SET,GlobalMedia_Classical,🌍 国外媒体
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,Proxy_Classical,🚀 国外流量
-  - RULE-SET,China,🎯 国内流量
+  - RULE-SET,China_Classical,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
   - MATCH,🐟 漏网之鱼
