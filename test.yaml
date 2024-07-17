@@ -21,6 +21,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - ✈️ 手动选择
+      - DIRECT
   - name: ✈️ 手动选择
     type: select
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
