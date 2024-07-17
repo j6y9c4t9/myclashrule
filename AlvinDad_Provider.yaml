@@ -9,7 +9,7 @@ proxy-providers:
     type: http
     path: ./ProxySet/Alvin/AlvinDad_Provider.yaml
     url: "机场订阅地址"
-    interval: 43200
+    interval: 21600
     exclude-filter: '家宽|冷门|3.0x'
     health-check:
       enable: true
@@ -184,157 +184,157 @@ rule-providers:
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
     path: ./providers/rule-provider_GitHub.yaml
-    interval: 86400
+    interval: 21600
   Provider_direct:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
     path: ./providers/rule-Provider_direct.yaml
-    interval: 86400
+    interval: 21600
   Provider_proxy:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
     path: ./providers/rule-Provider_proxy.yaml
-    interval: 86400
+    interval: 21600
   OpenAI:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
     path: ./providers/rule-provider_OpenAI.yaml
-    interval: 86400
+    interval: 21600
   Claude:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml
     path: ./providers/rule-provider_Claude.yaml
-    interval: 86400
+    interval: 21600
   Gemini:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
     path: ./providers/rule-provider_Gemini.yaml
-    interval: 86400
+    interval: 21600
   Copilot:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml
     path: ./providers/rule-provider_Copilot.yaml
-    interval: 86400
+    interval: 21600
   Lan:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
     path: ./providers/rule-provider_Lan.yaml
-    interval: 86400
+    interval: 21600
   Direct:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
     path: ./providers/rule-provider_Direct.yaml
-    interval: 86400
+    interval: 21600
   GoogleCN:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
     path: ./providers/rule-provider_GoogleCN.yaml
-    interval: 86400
+    interval: 21600
   PikPak:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PikPak/PikPak.yaml
     path: ./providers/rule-provider_PikPak.yaml
-    interval: 86400
+    interval: 21600
   MicrosoftEdge:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/MicrosoftEdge/MicrosoftEdge.yaml
     path: ./providers/rule-provider_MicrosoftEdge.yaml
-    interval: 86400
+    interval: 21600
   OneDrive:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.yaml
     path: ./providers/rule-provider_OneDrive.yaml
-    interval: 86400
+    interval: 21600
   Microsoft:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
     path: ./providers/rule-provider_Microsoft.yaml
-    interval: 86400
+    interval: 21600
   Apple:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml
     path: ./providers/rule-provider_Apple.yaml
-    interval: 86400
+    interval: 21600
   YouTube:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
     path: ./providers/rule-provider_YouTube.yaml
-    interval: 86400
+    interval: 21600
   Netflix:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml
     path: ./providers/rule-provider_Netflix.yaml
-    interval: 86400
+    interval: 21600
   Telegram:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
     path: ./providers/rule-provider_Telegram.yaml
-    interval: 86400
+    interval: 21600
   TikTok:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml
     path: ./providers/rule-provider_TikTok.yaml
-    interval: 86400
+    interval: 21600
   Spotify:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
     path: ./providers/rule-provider_Spotify.yaml
-    interval: 86400
+    interval: 21600
   Emby:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
     path: ./providers/rule-provider_Emby.yaml
-    interval: 86400
+    interval: 21600
   GlobalMedia_Classical:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
     path: ./providers/rule-provider_GlobalMedia_Classical.yaml
-    interval: 86400
+    interval: 21600
   ChinaMedia:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMedia/ChinaMedia.yaml
     path: ./providers/rule-provider_ChinaMedia.yaml
-    interval: 86400
+    interval: 21600
   Proxy_Classical:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml
     path: ./providers/rule-provider_Proxy_Classical.yaml
-    interval: 86400
+    interval: 21600
   China_Classical:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml
     path: ./providers/rule-provider_China_Classical.yaml
-    interval: 86400
+    interval: 21600
   Download:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml
     path: ./providers/rule-provider_Download.yaml
-    interval: 86400
+    interval: 21600
 rules:
   - RULE-SET,GitHub,👨‍💻 GitHub
   - RULE-SET,Provider_direct,🎯 国内流量
