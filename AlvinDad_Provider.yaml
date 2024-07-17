@@ -16,7 +16,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 300
 proxy-groups:
-  - name: 🚀 国外流量
+  - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
@@ -26,6 +26,7 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - ✈️ 手动选择
+      - DIRECT
   - name: ✈️ 手动选择
     type: select
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
@@ -42,11 +43,13 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
   - name: 🐟 漏网之鱼
     type: select
     proxies:
       - 🎯 国内流量
-      - 🚀 国外流量
+      - 🚀 节点选择
   - name: 💬 Ai
     type: select
     proxies:
@@ -67,24 +70,29 @@ proxy-groups:
     type: select
     proxies:
       - 🚁 Emby专用节点
-      - 🚀 国外流量
+      - 🚀 节点选择
       - 🎯 国内流量
   - name: 🎵 Spotify
     type: select
     proxies:
-      - 🚀 国外流量
+      - 🚀 节点选择
       - 🎯 国内流量
       - ♻️ 自动选择
   - name: 🎶 TikTok
     type: select
     proxies:
-      - 🚀 国外流量
-      - 🎯 国内流量
+      - 🚀 节点选择
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
       - ✈️ 手动选择
+      - 🎯 国内流量
   - name: 🌍 国外媒体
     type: select
     proxies:
-      - 🚀 国外流量
+      - 🚀 节点选择
       - 🎯 国内流量
   - name: 🌏 国内媒体
     type: select
@@ -93,33 +101,33 @@ proxy-groups:
   - name: 📲 Telegram
     type: select
     proxies:
-      - 🚀 国外流量
+      - 🚀 节点选择
       - 🇸🇬 狮城节点
   - name: 👨‍💻 GitHub
     type: select
     proxies:
-      - 🚀 国外流量
+      - 🚀 节点选择
       - 🎯 国内流量
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🎯 国内流量
-      - 🚀 国外流量
+      - 🚀 节点选择
   - name: Ⓜ️ 微软云盘
     type: select
     proxies:
-      - 🚀 国外流量
+      - 🚀 节点选择
       - 🎯 国内流量
   - name: Ⓜ️ 微软EDGE
     type: select
     proxies:
       - 🎯 国内流量
-      - 🚀 国外流量
+      - 🚀 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 国内流量
-      - 🚀 国外流量
+      - 🚀 节点选择
   - name: 🚁 Emby专用节点
     type: url-test
     tolerance: 50
@@ -330,7 +338,7 @@ rule-providers:
 rules:
   - RULE-SET,GitHub,👨‍💻 GitHub
   - RULE-SET,Provider_direct,🎯 国内流量
-  - RULE-SET,Provider_proxy,🚀 国外流量
+  - RULE-SET,Provider_proxy,🚀 节点选择
   - RULE-SET,OpenAI,💬 Ai
   - RULE-SET,Claude,💬 Ai
   - RULE-SET,Gemini,💬 Ai
@@ -338,7 +346,7 @@ rules:
   - RULE-SET,Lan,🎯 国内流量
   - RULE-SET,Direct,🎯 国内流量
   - RULE-SET,GoogleCN,🎯 国内流量
-  - RULE-SET,PikPak,🚀 国外流量
+  - RULE-SET,PikPak,🚀 节点选择
   - RULE-SET,MicrosoftEdge,Ⓜ️ 微软EDGE
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
@@ -351,7 +359,7 @@ rules:
   - RULE-SET,Emby,🎬 EMBY
   - RULE-SET,GlobalMedia_Classical,🌍 国外媒体
   - RULE-SET,ChinaMedia,🌏 国内媒体
-  - RULE-SET,Proxy_Classical,🚀 国外流量
+  - RULE-SET,Proxy_Classical,🚀 节点选择
   - RULE-SET,China_Classical,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
