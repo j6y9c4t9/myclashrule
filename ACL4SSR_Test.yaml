@@ -1,1 +1,232 @@
-
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: :9090
+proxy-providers:
+ All:
+    type: http
+    path: ./ProxySet/Alvin/ALL.yaml
+    url: "机场订阅地址"
+    interval: 86400
+    exclude-filter: '家宽|冷门|3.0x'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - ✈️ 手动选择
+      - DIRECT
+  - name: ✈️ 手动选择
+    type: select
+    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
+    use:
+      - All
+  - name: ♻️ 自动选择
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - All
+  - name: 🎯 国内流量
+    type: select
+    proxies:
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🎯 国内流量
+      - 🚀 节点选择
+  - name: 💬 Ai
+    type: select
+    proxies:
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇸🇬 狮城节点
+  - name: 🎬 EMBY
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🎯 国内流量
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 国内流量
+  - name: 📢 谷歌FCM
+    type: select
+    proxies:
+      - 🎯 国内流量
+      - 🚀 节点选择
+  - name: 📲 Telegram
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇸🇬 狮城节点
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🎯 国内流量
+      - 🚀 节点选择
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 国内流量
+      - 🚀 节点选择
+  - name: 🇭🇰 香港节点
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
+    interval: 300
+    use:
+      - All
+  - name: 🇨🇳 台湾节点
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    filter: '台|新北|彰化|TW|Taiwan'
+    interval: 300
+    use:
+      - All
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    filter: '新加坡|坡|狮城|SG|Singapore'
+    interval: 300
+    use:
+      - All
+  - name: 🇯🇵 日本节点
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
+    interval: 300
+    use:
+      - All
+  - name: 🇺🇲 美国节点
+    type: url-test
+    tolerance: 50
+    url: http://www.gstatic.com/generate_204
+    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
+    exclude-filter: 'Emby|emby'
+    interval: 300
+    use:
+      - All
+rule-providers:
+# 内容：可以自行添加其它自己想要在线规则列表
+  LocalAreaNetwork:
+    behavior: classical # domain, ipcidr or classical (premium core only)
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+    interval: 86400
+    path: ./ACL4SSR/LocalAreaNetwork.yaml
+  UnBan:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+    interval: 86400
+    path: ./ACL4SSR/UnBan.yaml
+  OpenAI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
+    path: ./providers/rule-provider_OpenAI.yaml
+    interval: 86400
+  Claude:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Claude.yaml
+    path: ./providers/rule-provider_Claude.yaml
+    interval: 86400
+  GoogleFCM:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
+    interval: 86400
+    path: ./ACL4SSR/GoogleFCM.yaml
+  GoogleCN:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+    interval: 86400
+    path: ./ACL4SSR/GoogleCN.yaml
+  SteamCN:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
+    interval: 86400
+    path: ./ACL4SSR/SteamCN.yaml
+  Microsoft:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
+    interval: 86400
+    path: ./ACL4SSR/Microsoft.yaml
+  Apple:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
+    interval: 86400
+    path: ./ACL4SSR/Apple.yaml
+  Telegram:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
+    interval: 86400
+    path: ./ACL4SSR/Telegram.yaml
+  Emby:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
+    path: ./providers/rule-provider_Emby.yaml
+    interval: 86400
+  ProxyLite:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyLite.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ProxyLite.yaml
+  ProxyMedia:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ProxyMedia.yaml
+  ChinaDomain:
+    behavior: classical 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaDomain.yaml
+  ChinaCompanyIp:
+    behavior: ipcidr 
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaCompanyIp.yaml
+rules:
+  - RULE-SET,OpenAI,💬 Ai
+  - RULE-SET,Claude,💬 Ai
+  - RULE-SET,LocalAreaNetwork,🎯 国内流量
+  - RULE-SET,UnBan,🎯 国内流量
+  - RULE-SET,GoogleFCM,📢 谷歌FCM
+  - RULE-SET,GoogleCN,🎯 国内流量
+  - RULE-SET,SteamCN,🎯 国内流量
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Emby,🎬 EMBY
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,ProxyLite,🚀 节点选择 
+  - RULE-SET,ProxyMedia,🌍 国外媒体
+  - RULE-SET,ChinaDomain,🎯 国内流量
+  - RULE-SET,ChinaCompanyIp,🎯 国内流量
+  - GEOIP,CN,🎯 国内流量
+  - MATCH,🐟 漏网之鱼
