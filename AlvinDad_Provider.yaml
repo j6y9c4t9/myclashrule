@@ -37,6 +37,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     interval: 300
+    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     use:
       - All
   - name: 🎯 国内流量
