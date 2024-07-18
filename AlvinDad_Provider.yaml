@@ -143,6 +143,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
+    exclude-filter: '家宽|冷门|3.0x|Emby|emby'
     interval: 300
     use:
       - All
@@ -151,6 +152,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
+    exclude-filter: '家宽|冷门|3.0x|Emby|emby'
     interval: 300
     use:
       - All
@@ -159,6 +161,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
+    exclude-filter: '家宽|冷门|3.0x|Emby|emby'
     interval: 300
     use:
       - All
@@ -167,6 +170,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
+    exclude-filter: '家宽|冷门|3.0x|Emby|emby'
     interval: 300
     use:
       - All
@@ -175,7 +179,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
-    exclude-filter: 'Emby|emby'
+    exclude-filter: '家宽|冷门|3.0x|Emby|emby'
     interval: 300
     use:
       - All
