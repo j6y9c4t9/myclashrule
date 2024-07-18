@@ -187,13 +187,13 @@ rule-providers:
   Provider_direct:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
     path: ./providers/rule-Provider_direct.yaml
     interval: 21600
   Provider_proxy:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
     path: ./providers/rule-Provider_proxy.yaml
     interval: 21600
   OpenAI:
@@ -235,7 +235,7 @@ rule-providers:
   GoogleCN:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
     path: ./providers/rule-provider_GoogleCN.yaml
     interval: 21600
   PikPak:
@@ -301,7 +301,7 @@ rule-providers:
   Emby:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
     path: ./providers/rule-provider_Emby.yaml
     interval: 21600
   GlobalMedia_Classical:
