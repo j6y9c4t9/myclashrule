@@ -47,8 +47,8 @@ proxy-groups:
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🎯 国内流量
       - 🚀 节点选择
+      - 🎯 国内流量
   - name: 💬 Ai
     type: select
     proxies:
