@@ -305,23 +305,17 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMedia/ChinaMedia.yaml
     path: ./providers/rule-provider_ChinaMedia.yaml
     interval: 21600
-  ProxyGFWlist:
+  Proxy_Classical:
     type: http
     behavior: classical
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
-    path: ./providers/rule-provider_ProxyGFWlist.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml
+    path: ./providers/rule-provider_Proxy_Classical.yaml
     interval: 21600
-  ChinaDomain:
+  China_Classical:
     type: http
     behavior: classical
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
-    path: ./providers/rule-provider_ChinaDomain.yaml
-    interval: 21600
-  ChinaCompanyIp:
-    type: http
-    behavior: domain
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
-    path: ./providers/rule-provider_ChinaCompanyIp.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml
+    path: ./providers/rule-provider_China_Classical.yaml
     interval: 21600
   Download:
     type: http
@@ -352,9 +346,8 @@ rules:
   - RULE-SET,Emby,🎬 EMBY
   - RULE-SET,GlobalMedia_Classical,🌍 国外媒体
   - RULE-SET,ChinaMedia,🌏 国内媒体
-  - RULE-SET,ProxyGFWlist,🚀 节点选择
-  - RULE-SET,ChinaDomain,🎯 国内流量
-  - RULE-SET,ChinaCompanyIp,🎯 国内流量
+  - RULE-SET,Proxy_Classical,🚀 节点选择
+  - RULE-SET,China_Classical,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
   - MATCH,🐟 漏网之鱼
