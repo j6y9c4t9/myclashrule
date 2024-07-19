@@ -325,7 +325,7 @@ rule-providers:
     interval: 21600
 rules:
   - RULE-SET,GitHub,👨‍💻 GitHub
-  - RULE-SET,Provider_direct,🎯 国内流量
+  - RULE-SET,Provider_direct,DIRECT
   - RULE-SET,Provider_proxy,🚀 节点选择
   - RULE-SET,OpenAI,💬 Ai
   - RULE-SET,Claude,💬 Ai
