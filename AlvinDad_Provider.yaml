@@ -54,7 +54,8 @@ proxy-groups:
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
-    在terval: 60
+    exclude-filter: 'Emby|emby'
+    interval: 60
     include-all-providers: true
   - name: 🎯 国内流量
     type: select
