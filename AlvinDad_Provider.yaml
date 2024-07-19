@@ -319,7 +319,7 @@ rule-providers:
     interval: 21600
   ChinaCompanyIp:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
     path: ./providers/rule-provider_ChinaCompanyIp.yaml
     interval: 21600
