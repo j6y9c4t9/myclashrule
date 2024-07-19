@@ -14,7 +14,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 60
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -35,7 +35,7 @@ proxy-groups:
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    interval: 60
     use:
       - All
   - name: 🎯 国内流量
@@ -128,7 +128,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: 'Emby|emby|0.0x|0.01x'
     exclude-filter: '3.0x'
-    interval: 300
+    interval: 60
     use:
       - All
   - name: 🇭🇰 香港节点
@@ -136,7 +136,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    interval: 300
+    interval: 60
     use:
       - All
   - name: 🇨🇳 台湾节点
@@ -144,7 +144,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
-    interval: 300
+    interval: 60
     use:
       - All
   - name: 🇸🇬 狮城节点
@@ -152,7 +152,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
-    interval: 300
+    interval: 60
     use:
       - All
   - name: 🇯🇵 日本节点
@@ -160,7 +160,7 @@ proxy-groups:
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    interval: 300
+    interval: 60
     use:
       - All
   - name: 🇺🇲 美国节点
@@ -169,7 +169,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     exclude-filter: 'Emby|emby'
-    interval: 300
+    interval: 60
     use:
       - All
 rule-providers:
