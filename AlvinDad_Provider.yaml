@@ -9,7 +9,7 @@ proxy-providers:
     type: http
     path: ./ProxySet/Alvin/AlvinDad_Provider_A.yaml
     url: "机场订阅地址"
-    在terval: 21600
+    interval: 21600
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     health-check:
       enable: true
@@ -29,7 +29,7 @@ proxy-providers:
     type: http
     path: ./ProxySet/Alvin/AlvinDad_Provider_C.yaml
     url: "机场订阅地址"
-    在terval: 21600
+    interval: 21600
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     health-check:
       enable: true
