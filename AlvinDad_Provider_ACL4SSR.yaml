@@ -5,16 +5,36 @@ mode: rule
 log-level: info
 external-controller: :9090
 proxy-providers:
- All:
+ A :
     type: http
-    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR.yaml
+    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR_A.yaml
     url: "机场订阅地址"
     interval: 21600
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 60
+ B :
+    type: http
+    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR_B.yaml
+    url: "机场订阅地址"
+    interval: 21600
+    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 60
+ C :
+    type: http
+    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR_C.yaml
+    url: "机场订阅地址"
+    interval: 21600
+    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 60
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -29,15 +49,13 @@ proxy-groups:
       - DIRECT
   - name: ✈️ 手动选择
     type: select
-    use:
-      - All
+    include-all-providers: ture
   - name: ♻️ 自动选择
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
   - name: 🎯 国内流量
     type: select
     proxies:
@@ -123,50 +141,44 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: 'Emby|emby|0.0x|0.01x'
     exclude-filter: '3.0x'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
   - name: 🇭🇰 香港节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
   - name: 🇨🇳 台湾节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
   - name: 🇸🇬 狮城节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
   - name: 🇯🇵 日本节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
   - name: 🇺🇲 美国节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     exclude-filter: 'Emby|emby'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    include-all-providers: ture
 rule-providers:
   Provider_direct:
     type: http
