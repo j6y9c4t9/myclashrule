@@ -7,7 +7,7 @@ external-controller: :9090
 proxy-providers:
  All:
     type: http
-    path: ./ProxySet/Alvin/AlvinDad_Provider.yaml
+    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR.yaml
     url: "机场订阅地址"
     interval: 21600
     exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
