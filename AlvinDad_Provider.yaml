@@ -117,11 +117,6 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
       - 🎯 国内流量
-  - name: Ⓜ️ 微软EDGE
-    type: select
-    proxies:
-      - 🎯 国内流量
-      - 🚀 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
@@ -244,12 +239,6 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PikPak/PikPak.yaml
     path: ./providers/rule-provider_PikPak.yaml
     interval: 21600
-  MicrosoftEdge:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/MicrosoftEdge/MicrosoftEdge.yaml
-    path: ./providers/rule-provider_MicrosoftEdge.yaml
-    interval: 21600
   OneDrive:
     type: http
     behavior: classical
@@ -352,7 +341,6 @@ rules:
   - RULE-SET,Direct,🎯 国内流量
   - RULE-SET,GoogleCN,🎯 国内流量
   - RULE-SET,PikPak,🚀 节点选择
-  - RULE-SET,MicrosoftEdge,Ⓜ️ 微软EDGE
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
