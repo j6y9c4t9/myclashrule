@@ -10,7 +10,7 @@ proxy-providers:
     path: ./ProxySet/Alvin/ALL.yaml
     url: "机场订阅地址"
     interval: 86400
-    exclude-filter: '家宽|冷门|3.0x'
+    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -24,7 +24,6 @@ proxy-groups:
       - DIRECT
   - name: ✈️ 手动选择
     type: select
-    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
     use:
       - All
   - name: ♻️ 自动选择
@@ -41,8 +40,8 @@ proxy-groups:
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🎯 国内流量
       - 🚀 节点选择
+      - 🎯 国内流量
   - name: 💬 Ai
     type: select
     proxies:
@@ -125,61 +124,61 @@ rule-providers:
   LocalAreaNetwork:
     behavior: classical # domain, ipcidr or classical (premium core only)
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 86400
     path: ./ACL4SSR/LocalAreaNetwork.yaml
   UnBan:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
     interval: 86400
     path: ./ACL4SSR/UnBan.yaml
   OpenAI:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
     path: ./providers/rule-provider_OpenAI.yaml
     interval: 86400
   Claude:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Claude.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Claude.yaml
     path: ./providers/rule-provider_Claude.yaml
     interval: 86400
   GoogleFCM:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml
     interval: 86400
     path: ./ACL4SSR/GoogleFCM.yaml
   GoogleCN:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
     interval: 86400
     path: ./ACL4SSR/GoogleCN.yaml
   SteamCN:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml
     interval: 86400
     path: ./ACL4SSR/SteamCN.yaml
   Microsoft:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml
     interval: 86400
     path: ./ACL4SSR/Microsoft.yaml
   Apple:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml
     interval: 86400
     path: ./ACL4SSR/Apple.yaml
   Telegram:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml
     interval: 86400
     path: ./ACL4SSR/Telegram.yaml
   Emby:
@@ -191,25 +190,25 @@ rule-providers:
   ProxyLite:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyLite.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyLite.yaml
     interval: 86400
     path: ./ACL4SSR/ProxyLite.yaml
   ProxyMedia:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
     interval: 86400
     path: ./ACL4SSR/ProxyMedia.yaml
   ChinaDomain:
     behavior: classical 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
     interval: 86400
     path: ./ACL4SSR/ChinaDomain.yaml
   ChinaCompanyIp:
     behavior: ipcidr 
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
     interval: 86400
     path: ./ACL4SSR/ChinaCompanyIp.yaml
 rules:
