@@ -85,11 +85,16 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
   - name: 🎬 EMBY
-    type: select
+    type: fallback
     proxies:
-      - 🚁 Emby专用节点
-      - 🚀 节点选择
-      - 🎯 国内流量
+      - 📺 Emby专用节点
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+    url: http://www.gstatic.com/generate_204
+    interval: 60
   - name: 🎵 Spotify
     type: select
     proxies:
@@ -136,7 +141,7 @@ proxy-groups:
     proxies:
       - 🎯 国内流量
       - 🚀 节点选择
-  - name: 🚁 Emby专用节点
+  - name: 📺 Emby专用节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
