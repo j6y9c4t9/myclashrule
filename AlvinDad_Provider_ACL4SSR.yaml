@@ -335,6 +335,7 @@ rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,GoogleCN,🎯 国内流量
+  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,YouTube,📹 YouTube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,Telegram,📲 Telegram
@@ -345,7 +346,6 @@ rules:
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
