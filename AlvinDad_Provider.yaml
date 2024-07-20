@@ -139,8 +139,8 @@ proxy-groups:
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
-      - 🚀 节点选择
       - 🎯 国内流量
+      - 🚀 节点选择
   - name: 🚁 Emby专用节点
     type: url-test
     tolerance: 50
