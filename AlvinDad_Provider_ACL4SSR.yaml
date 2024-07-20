@@ -134,8 +134,8 @@ proxy-groups:
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
-      - 🎯 国内流量
       - 🚀 节点选择
+      - 🎯 国内流量
   - name: 🚁 Emby专用节点
     type: url-test
     tolerance: 50
@@ -335,9 +335,6 @@ rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,GoogleCN,🎯 国内流量
-  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,YouTube,📹 YouTube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,Telegram,📲 Telegram
@@ -346,6 +343,9 @@ rules:
   - RULE-SET,Emby,🎬 EMBY
   - RULE-SET,ProxyMedia,🌍 国外媒体
   - RULE-SET,ChinaMedia,🌏 国内媒体
+  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
