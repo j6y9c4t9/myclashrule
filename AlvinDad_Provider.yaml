@@ -323,18 +323,18 @@ rule-providers:
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia.yaml
     path: ./providers/rule-provider_ChinaMedia.yaml
     interval: 21600
-  ProxyGFWlist:
+  ProxyLite:
     type: http
     behavior: classical
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
-    path: ./ACL4SSR/ProxyGFWlist.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml
+    path: ./ACL4SSR/ProxyLite.yaml
     interval: 21600
-  ChinaDomain:
+  China_Classical:
     behavior: classical 
     type: http
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical.yaml
     interval: 21600
-    path: ./ACL4SSR/ChinaDomain.yaml
+    path: ./ACL4SSR/China_Classical.yaml
   ChinaCompanyIp:
     behavior: ipcidr 
     type: http
@@ -370,8 +370,8 @@ rules:
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,ProxyGFWlist,🚀 节点选择
-  - RULE-SET,ChinaDomain,🎯 国内流量
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,China_Classical,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
