@@ -3,6 +3,7 @@ payload:
   #- DOMAIN-SUFFIX,misakaf.org
   #- DOMAIN-SUFFIX,emby.aca.best
   - DOMAIN-SUFFIX,liquipedia.net
+  - DOMAIN-SUFFIX,img-s-msn-com.akamaized.net
 
   #一些需要直连的订阅转换地址
   #- DOMAIN-SUFFIX,speedtest.cn
