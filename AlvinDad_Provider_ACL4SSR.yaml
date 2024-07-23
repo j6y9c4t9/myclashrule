@@ -306,11 +306,11 @@ rule-providers:
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml
     path: ./ACL4SSR/ChinaMedia.yaml
     interval: 21600
-  Proxy_Classical:
+  ProxyGFWlist:
     type: http
     behavior: classical
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml
-    path: ./providers/rule-provider_Proxy_Classical.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
+    path: ./ACL4SSR/ProxyGFWlist.yaml
     interval: 21600
   ChinaDomain:
     behavior: classical 
@@ -351,7 +351,7 @@ rules:
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Proxy_Classical,🚀 节点选择
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
