@@ -4,6 +4,7 @@ payload:
   #- DOMAIN-SUFFIX,emby.aca.best
   #- DOMAIN-SUFFIX,img-s-msn-com.akamaized.net
   - DOMAIN-SUFFIX,liquipedia.net
+  - DOMAIN-SUFFIX,fastly.jsdelivr.net
 
 
   #一些需要直连的订阅转换地址
