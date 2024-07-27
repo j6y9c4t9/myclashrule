@@ -86,6 +86,7 @@ proxy-groups:
   - name: 📹 YouTube
     type: select
     proxies:
+      - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🎥 Netflix
     type: select
