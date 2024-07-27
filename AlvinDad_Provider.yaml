@@ -39,8 +39,8 @@ proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
-      - 🔮 负载均衡
       - ♻️ 自动选择
+      - 🔮 负载均衡
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
@@ -53,10 +53,11 @@ proxy-groups:
     include-all-providers: true
   - name: 🔮 负载均衡
     type: load-balance
-    tolerance: 50
     url: http://www.gstatic.com/generate_204
     exclude-filter: 'Emby|emby'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     strategy: consistent-hashing 
     include-all-providers: true
   - name: ♻️ 自动选择
@@ -65,6 +66,8 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     exclude-filter: 'Emby|emby'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
   - name: 🎯 国内流量
     type: select
@@ -163,6 +166,8 @@ proxy-groups:
     filter: 'Emby|emby|0.0x|0.01x'
     exclude-filter: '3.0x'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
   - name: 🇭🇰 香港节点
     type: url-test
@@ -170,6 +175,8 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
   - name: 🇨🇳 台湾节点
     type: url-test
@@ -177,6 +184,8 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
   - name: 🇸🇬 狮城节点
     type: url-test
@@ -184,6 +193,8 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
   - name: 🇯🇵 日本节点
     type: url-test
@@ -191,6 +202,8 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
   - name: 🇺🇲 美国节点
     type: url-test
@@ -199,6 +212,8 @@ proxy-groups:
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     exclude-filter: 'Emby|emby'
     interval: 60
+    timeout: 5000
+    max-failed-times: 5
     include-all-providers: true
 rule-providers:
   GitHub:
