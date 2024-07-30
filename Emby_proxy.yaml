@@ -1,0 +1,6 @@
+payload:
+  #突然能直连的emby
+  #- DOMAIN-SUFFIX,misakaf.org
+  #- DOMAIN-SUFFIX,emby.aca.best
+  - DOMAIN-SUFFIX,liquipedia.net
+  - DOMAIN-SUFFIX,fastly.jsdelivr.net
