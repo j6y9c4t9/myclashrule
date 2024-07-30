@@ -372,18 +372,22 @@ rule-providers:
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
     path: ./ACL4SSR/Download.yaml
     interval: 21600
+  Emby_proxy:
+    type: http
+    behavior: classical
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
+    path: ./providers/rule-Emby_proxy.yaml
+    interval: 21600
 rules:
-  - RULE-SET,GitHub,👨‍💻 GitHub
   - RULE-SET,Provider_direct,DIRECT
   - RULE-SET,Provider_proxy,🚀 节点选择
   - RULE-SET,OpenAI,💬 Ai
   - RULE-SET,Claude,💬 Ai
   - RULE-SET,Gemini,💬 Ai
   - RULE-SET,Copilot,💬 Ai
-  - RULE-SET,Lan,DIRECT
+  - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,GoogleCN,🎯 国内流量
-  - RULE-SET,PikPak,🚀 节点选择
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
@@ -393,8 +397,9 @@ rules:
   - RULE-SET,TikTok,🎶 TikTok
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🎬 EMBY
-  - RULE-SET,GlobalMedia_Classical,🌍 国外媒体
+  - RULE-SET,Emby_proxy,🎬 EMBY
   - RULE-SET,ChinaMedia,🌏 国内媒体
+  - RULE-SET,ProxyMedia,🌍 国外媒体
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
