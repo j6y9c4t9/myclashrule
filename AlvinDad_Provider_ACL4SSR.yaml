@@ -385,7 +385,7 @@ rules:
   - RULE-SET,TikTok,🎶 TikTok
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🎬 EMBY
-  - RULE-SET,Emby_proxy,🎬 EMBY
+  - RULE-SET,Emby_proxy,🚀 节点选择
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,ProxyMedia,🌍 国外媒体
   - RULE-SET,ProxyGFWlist,🚀 节点选择
