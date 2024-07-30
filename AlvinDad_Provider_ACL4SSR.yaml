@@ -360,6 +360,12 @@ rule-providers:
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
     path: ./ACL4SSR/Download.yaml
     interval: 21600
+  Emby_proxy:
+    type: http
+    behavior: classical
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
+    path: ./providers/rule-Emby_proxy.yaml
+    interval: 21600
 rules:
   - RULE-SET,Provider_direct,DIRECT
   - RULE-SET,Provider_proxy,🚀 节点选择
@@ -379,6 +385,7 @@ rules:
   - RULE-SET,TikTok,🎶 TikTok
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🎬 EMBY
+  - RULE-SET,Emby_proxy,🎬 EMBY
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,ProxyMedia,🌍 国外媒体
   - RULE-SET,ProxyGFWlist,🚀 节点选择
