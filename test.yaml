@@ -5,39 +5,81 @@ mode: rule
 log-level: info
 external-controller: :9090
 proxy-providers:
- All:
-    type: http
-    path: ./ProxySet/Alvin/ALL.yaml
-    url: "机场订阅地址"
-    interval: 21600
-    exclude-filter: '家宽|冷门|3.0x'
+  A:
+    type: file
+    path: /etc/openclash/config/myproxy.yaml
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 600
+      url: http://www.google.com/generate_204
+  B:
+    type: file
+    path: /etc/openclash/config/myproxy.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.google.com/generate_204
+  C:
+    type: file
+    path: /etc/openclash/config/myproxy.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.google.com/generate_204
+  D:
+    type: file
+    path: /etc/openclash/config/myproxy.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.google.com/generate_204
+  E:
+    type: file
+    path: /etc/openclash/config/myproxy.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.google.com/generate_204
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
       - ✈️ 手动选择
       - DIRECT
   - name: ✈️ 手动选择
     type: select
-    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
-    use:
-      - All
+    include-all-providers: true
+  - name: 🔮 负载均衡
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    exclude-filter: 'Emby|emby'
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    strategy: consistent-hashing 
+    include-all-providers: true
   - name: ♻️ 自动选择
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    use:
-      - All
+    exclude-filter: 'Emby|emby'
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
   - name: 🎯 国内流量
     type: select
     proxies:
       - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
   - name: 🐟 漏网之鱼
     type: select
     proxies:
@@ -52,6 +94,7 @@ proxy-groups:
   - name: 📹 YouTube
     type: select
     proxies:
+      - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🎥 Netflix
     type: select
@@ -60,10 +103,16 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
   - name: 🎬 EMBY
-    type: select
+    type: fallback
     proxies:
-      - ♻️ 自动选择
-      - 🎯 国内流量
+      - 📺 Emby专用节点
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+    url: http://www.gstatic.com/generate_204
+    interval: 60
   - name: 🎵 Spotify
     type: select
     proxies:
@@ -74,8 +123,13 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 节点选择
-      - 🎯 国内流量
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
       - ✈️ 手动选择
+      - 🎯 国内流量
   - name: 🌍 国外媒体
     type: select
     proxies:
@@ -105,249 +159,243 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
       - 🎯 国内流量
-  - name: Ⓜ️ 微软EDGE
-    type: select
-    proxies:
-      - 🎯 国内流量
-      - 🚀 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 国内流量
       - 🚀 节点选择
-  - name: 🚁 Emby专用节点
+  - name: 📺 Emby专用节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: 'Emby|emby|0.0x|0.01x'
     exclude-filter: '3.0x'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
   - name: 🇭🇰 香港节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
   - name: 🇨🇳 台湾节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
   - name: 🇸🇬 狮城节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
   - name: 🇯🇵 日本节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
   - name: 🇺🇲 美国节点
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     exclude-filter: 'Emby|emby'
-    interval: 300
-    use:
-      - All
+    interval: 60
+    timeout: 5000
+    max-failed-times: 5
+    include-all-providers: true
 rule-providers:
-  GitHub:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
-    path: ./providers/rule-provider_GitHub.yaml
-    interval: 21600
   Provider_direct:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
     path: ./providers/rule-Provider_direct.yaml
     interval: 21600
   Provider_proxy:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
     path: ./providers/rule-Provider_proxy.yaml
     interval: 21600
   OpenAI:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
     path: ./providers/rule-provider_OpenAI.yaml
     interval: 21600
   Claude:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
     path: ./providers/rule-provider_Claude.yaml
     interval: 21600
   Gemini:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
     path: ./providers/rule-provider_Gemini.yaml
     interval: 21600
   Copilot:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml
     path: ./providers/rule-provider_Copilot.yaml
     interval: 21600
-  Lan:
+  LocalAreaNetwork:
+    behavior: classical # domain, ipcidr or classical (premium core only)
     type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
-    path: ./providers/rule-provider_Lan.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 21600
-  Direct:
+    path: ./ACL4SSR/LocalAreaNetwork.yaml
+  UnBan:
+    behavior: classical 
     type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
-    path: ./providers/rule-provider_Direct.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
     interval: 21600
+    path: ./ACL4SSR/UnBan.yaml
   GoogleCN:
+    behavior: classical 
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
-    path: ./providers/rule-provider_GoogleCN.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
     interval: 21600
-  PikPak:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PikPak/PikPak.yaml
-    path: ./providers/rule-provider_PikPak.yaml
-    interval: 21600
-  MicrosoftEdge:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/MicrosoftEdge/MicrosoftEdge.yaml
-    path: ./providers/rule-provider_MicrosoftEdge.yaml
-    interval: 21600
+    path: ./ACL4SSR/GoogleCN.yaml
   OneDrive:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.yaml
-    path: ./providers/rule-provider_OneDrive.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
+    path: ./ACL4SSR/OneDrive.yaml
     interval: 21600
   Microsoft:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
     path: ./providers/rule-provider_Microsoft.yaml
     interval: 21600
   Apple:
+    behavior: classical 
     type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml
-    path: ./providers/rule-provider_Apple.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml
     interval: 21600
+    path: ./ACL4SSR/Apple.yaml
   YouTube:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
-    path: ./providers/rule-provider_YouTube.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml
+    path: ./ACL4SSR/YouTube.yaml
     interval: 21600
   Netflix:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml
-    path: ./providers/rule-provider_Netflix.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml
+    path: ./ACL4SSR/Netflix.yaml
     interval: 21600
   Telegram:
+    behavior: classical 
     type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
-    path: ./providers/rule-provider_Telegram.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml
     interval: 21600
+    path: ./ACL4SSR/Telegram.yaml
   TikTok:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml
-    path: ./providers/rule-provider_TikTok.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TikTok.yaml
+    path: ./ACL4SSR/TikTok.yaml
     interval: 21600
   Spotify:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
-    path: ./providers/rule-provider_Spotify.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml
+    path: ./ACL4SSR/Spotify.yaml
     interval: 21600
   Emby:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
     path: ./providers/rule-provider_Emby.yaml
     interval: 21600
-  GlobalMedia_Classical:
+  ProxyMedia:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
-    path: ./providers/rule-provider_GlobalMedia_Classical.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
+    path: ./ACL4SSR/ProxyMedia.yaml
     interval: 21600
   ChinaMedia:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMedia/ChinaMedia.yaml
-    path: ./providers/rule-provider_ChinaMedia.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml
+    path: ./ACL4SSR/ChinaMedia.yaml
     interval: 21600
-  Proxy_Classical:
+  ProxyGFWlist:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml
-    path: ./providers/rule-provider_Proxy_Classical.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
+    path: ./ACL4SSR/ProxyGFWlist.yaml
     interval: 21600
-  China_Classical:
+  ChinaDomain:
+    behavior: classical 
     type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml
-    path: ./providers/rule-provider_China_Classical.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
     interval: 21600
+    path: ./ACL4SSR/ChinaDomain.yaml
+  ChinaCompanyIp:
+    behavior: ipcidr 
+    type: http
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
+    interval: 21600
+    path: ./ACL4SSR/ChinaCompanyIp.yaml
   Download:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml
-    path: ./providers/rule-provider_Download.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
+    path: ./ACL4SSR/Download.yaml
+    interval: 21600
+  Emby_proxy:
+    type: http
+    behavior: classical
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
+    path: ./providers/rule-Emby_proxy.yaml
     interval: 21600
 rules:
-  - RULE-SET,GitHub,👨‍💻 GitHub
-  - RULE-SET,Provider_direct,🎯 国内流量
+  - RULE-SET,Provider_direct,DIRECT
   - RULE-SET,Provider_proxy,🚀 节点选择
   - RULE-SET,OpenAI,💬 Ai
   - RULE-SET,Claude,💬 Ai
   - RULE-SET,Gemini,💬 Ai
   - RULE-SET,Copilot,💬 Ai
-  - RULE-SET,Lan,🎯 国内流量
-  - RULE-SET,Direct,🎯 国内流量
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,UnBan,DIRECT
   - RULE-SET,GoogleCN,🎯 国内流量
-  - RULE-SET,PikPak,🚀 节点选择
-  - RULE-SET,MicrosoftEdge,Ⓜ️ 微软EDGE
+  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,YouTube,📹 YouTube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,Telegram,📲 Telegram
   - RULE-SET,TikTok,🎶 TikTok
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🎬 EMBY
-  - RULE-SET,GlobalMedia_Classical,🌍 国外媒体
+  - RULE-SET,Emby_proxy,🚀 节点选择
   - RULE-SET,ChinaMedia,🌏 国内媒体
-  - RULE-SET,Proxy_Classical,🚀 节点选择
-  - RULE-SET,China_Classical,🎯 国内流量
+  - RULE-SET,ProxyMedia,🌍 国外媒体
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 国内流量
+  - RULE-SET,ChinaCompanyIp,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
   - MATCH,🐟 漏网之鱼
