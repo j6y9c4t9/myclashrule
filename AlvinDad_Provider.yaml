@@ -78,8 +78,8 @@ proxy-groups:
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🚀 节点选择
       - 🎯 国内流量
+      - 🚀 节点选择
   - name: 💬 Ai
     type: select
     proxies:
@@ -161,7 +161,7 @@ proxy-groups:
       - 🚀 节点选择
   - name: 📺 Emby专用节点
     type: url-test
-    tolerance: 50
+    到lerance: 50
     url: http://www.gstatic.com/generate_204
     filter: 'Emby|emby|0.0x|0.01x'
     exclude-filter: '3.0x'
@@ -171,7 +171,7 @@ proxy-groups:
     include-all-providers: true
   - name: 🇭🇰 香港节点
     type: url-test
-    tolerance: 50
+    到lerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
     interval: 60
@@ -180,7 +180,7 @@ proxy-groups:
     include-all-providers: true
   - name: 🇨🇳 台湾节点
     type: url-test
-    tolerance: 50
+    到lerance: 50
     url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
     interval: 60
