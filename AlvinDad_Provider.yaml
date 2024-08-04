@@ -14,7 +14,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      在terval: 60
+      interval: 60
  B:
     type: http
     path: ./ProxySet/Alvin/AlvinDad_Provider_B.yaml
@@ -24,7 +24,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      在terval: 60
+      interval: 60
  C:
     type: http
     path: ./ProxySet/Alvin/AlvinDad_Provider_C.yaml
@@ -34,7 +34,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      在terval: 60
+      interval: 60
 proxy-groups:
   - name: 🚀 节点选择
     type: select
