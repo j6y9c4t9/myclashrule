@@ -9,6 +9,8 @@ payload:
   - DOMAIN-SUFFIX,www.aca.dog
   - DOMAIN-SUFFIX,cloudfisher.net
   - DOMAIN-SUFFIX,wiki.metacubex.one
+  - DOMAIN-SUFFIX,api.dler.io
+  - DOMAIN-SUFFIX,api.ytools.cc
   #docker
   - DOMAIN,d1q6f0aelx0por.cloudfront.net
   - DOMAIN,d2wy8f7a9ursnm.cloudfront.net
