@@ -2,6 +2,7 @@ payload:
   #DOMAIN-SUFFIX,aca.dog
   #DOMAIN,ww1.12345.al
   #DOMAIN-SUFFIX,digit77.com
+  - DOMAIN-SUFFIX,dl.openwrt.ai
   - DOMAIN-SUFFIX,hutao.cloud
   - DOMAIN-SUFFIX,sub.ffq.la
   - DOMAIN-SUFFIX,vip.charontv.com
