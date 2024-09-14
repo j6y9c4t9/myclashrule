@@ -111,6 +111,11 @@ proxy-groups:
   - name: 🎵 Spotify
     type: select
     proxies:
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
       - 🚀 节点选择
       - 🎯 国内流量
       - ♻️ 自动选择
