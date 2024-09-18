@@ -390,7 +390,7 @@ rules:
   - RULE-SET,Claude,💬 Ai
   - RULE-SET,Gemini,💬 Ai
   - RULE-SET,Copilot,💬 Ai
-  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,Lan,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,GoogleCN,🎯 国内流量
   - RULE-SET,Apple,🍎 苹果服务
