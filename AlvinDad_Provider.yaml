@@ -83,9 +83,7 @@ proxy-groups:
   - name: 💬 Ai
     type: select
     proxies:
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇸🇬 狮城节点
+      - 🇺🇲🇯🇵🇸🇬 AI节点
   - name: 📹 YouTube
     type: select
     proxies:
@@ -219,6 +217,11 @@ proxy-groups:
     interval: 60
     timeout: 5000
     max-failed-times: 5
+    include-all-providers: true
+  - name: 🇺🇲🇯🇵🇸🇬 AI节点
+    type: select
+    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|新加坡|坡|狮城|SG|Singapore'
+    exclude-filter: 'Emby|emby'
     include-all-providers: true
 rule-providers:
   GitHub:
