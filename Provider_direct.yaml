@@ -5,6 +5,8 @@ payload:
   - DOMAIN-SUFFIX,liquipedia.net
   - DOMAIN-SUFFIX,fastly.jsdelivr.net
   - DOMAIN-SUFFIX,dl.openwrt.ai
+  #直连的emby
+  - DOMAIN-SUFFIX,makima.online
   #- DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 
 
