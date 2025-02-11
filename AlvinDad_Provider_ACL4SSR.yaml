@@ -296,79 +296,79 @@ rule-providers:
   YouTube:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml
     path: ./ACL4SSR/YouTube.yaml
     interval: 21600
   Netflix:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml
     path: ./ACL4SSR/Netflix.yaml
     interval: 21600
   Telegram:
     behavior: classical 
     type: http
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml
     interval: 21600
     path: ./ACL4SSR/Telegram.yaml
   TikTok:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TikTok.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TikTok.yaml
     path: ./ACL4SSR/TikTok.yaml
     interval: 21600
   Spotify:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml
     path: ./ACL4SSR/Spotify.yaml
     interval: 21600
   Emby:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
+    url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
     path: ./providers/rule-provider_Emby.yaml
     interval: 21600
   ProxyMedia:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
     path: ./ACL4SSR/ProxyMedia.yaml
     interval: 21600
   ChinaMedia:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml
     path: ./ACL4SSR/ChinaMedia.yaml
     interval: 21600
   ProxyGFWlist:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
     path: ./ACL4SSR/ProxyGFWlist.yaml
     interval: 21600
   ChinaDomain:
     behavior: classical 
     type: http
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
     interval: 21600
     path: ./ACL4SSR/ChinaDomain.yaml
   ChinaCompanyIp:
     behavior: ipcidr 
     type: http
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
     interval: 21600
     path: ./ACL4SSR/ChinaCompanyIp.yaml
   Download:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
     path: ./ACL4SSR/Download.yaml
     interval: 21600
   Emby_proxy:
     type: http
     behavior: classical
-    url: hhttps://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
+    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
     path: ./providers/rule-Emby_proxy.yaml
     interval: 21600
 rules:
