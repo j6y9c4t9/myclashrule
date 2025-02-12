@@ -3,7 +3,7 @@ payload:
   #- DOMAIN-SUFFIX,misakaf.org
   #- DOMAIN-SUFFIX,emby.aca.best
   - DOMAIN-SUFFIX,liquipedia.net
-  - DOMAIN-SUFFIX,fastly.jsdelivr.net
+  #- DOMAIN-SUFFIX,fastly.jsdelivr.net
   - DOMAIN-SUFFIX,dl.openwrt.ai
   #直连的emby
   - DOMAIN-SUFFIX,makima.online
