@@ -34,7 +34,7 @@ ruleset=🐟 漏网之鱼,[]FINAL
 
 ;设置分组标志位
 
-custom_proxy_group=🚀 国外流量`select`[]♻️ 自动选择`[]✈️ 手动选择`[]🛩️ 手动选择备用
+custom_proxy_group=🚀 国外流量`select`[]♻️ 自动选择`[]✈️ 手动选择
 custom_proxy_group=✈️ 手动选择`select`(^(?!.*(x|X|重置|剩余|到期|网址)).*)
 custom_proxy_group=🎯 国内流量`select`[]DIRECT
 custom_proxy_group=🐟 漏网之鱼`select`[]🚀 国外流量`[]🎯 国内流量
@@ -43,7 +43,7 @@ custom_proxy_group=📹 YouTube`select`[]🚀 国外流量`[]♻️ 自动选择
 custom_proxy_group=🎥 Netflix`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点
 custom_proxy_group=🎬 EMBY`select`[]♻️ 自动选择`[]🎯 国内流量`[]🇭🇰 香港节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点
 custom_proxy_group=🎵 Spotify`select`[]🎯 国内流量`[]♻️ 自动选择
-custom_proxy_group=🎶 TikTok`select`[]🚀 国外流量`[]🎯 国内流量`[]✈️ 手动选择`[]🛩️ 手动选择备用
+custom_proxy_group=🎶 TikTok`select`[]🚀 国外流量`[]🎯 国内流量`[]✈️ 手动选择
 custom_proxy_group=🌍 国外媒体`select`[]🚀 国外流量`[]🎯 国内流量`[]♻️ 自动选择
 custom_proxy_group=🌏 国内媒体`select`[]🎯 国内流量
 custom_proxy_group=📲 Telegram`select`[]🚀 国外流量`[]🎯 国内流量`[]♻️ 自动选择`[]🇸🇬 狮城节点
