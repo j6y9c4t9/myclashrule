@@ -78,8 +78,8 @@ proxy-groups:
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🎯 国内流量
       - 🚀 节点选择
+      - 🎯 国内流量
   - name: 💬 Ai
     type: select
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|新加坡|坡|狮城|SG|Singapore'
@@ -100,6 +100,8 @@ proxy-groups:
     type: fallback
     proxies:
       - 📺 Emby专用节点
+      - ✈️ 手动选择
+      - DIRECT
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
@@ -167,8 +169,7 @@ proxy-groups:
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
-    filter: 'Emby|emby|0.0x|0.01x|Direct'
-    exclude-filter: '3.0x'
+    exclude-filter: 'pro|Lite|lite'
     interval: 60
     timeout: 5000
     max-failed-times: 5
@@ -218,11 +219,6 @@ proxy-groups:
     interval: 60
     timeout: 5000
     max-failed-times: 5
-    include-all-providers: true
-  - name: 🇺🇲🇯🇵🇸🇬 AI节点
-    type: select
-    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|新加坡|坡|狮城|SG|Singapore'
-    exclude-filter: 'Emby|emby'
     include-all-providers: true
 rule-providers:
   Provider_direct:
@@ -394,7 +390,7 @@ rules:
   - RULE-SET,TikTok,🎶 TikTok
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🎬 EMBY
-  - RULE-SET,Emby_proxy,🚀 节点选择
+  - RULE-SET,Emby_proxy,🎬 EMBY
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,ProxyMedia,🌍 国外媒体
   - RULE-SET,ProxyGFWlist,🚀 节点选择
@@ -402,4 +398,5 @@ rules:
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
   - RULE-SET,Download,🎯 国内流量
   - GEOIP,cn,🎯 国内流量
+  - MATCH,🐟 漏网之鱼
   - MATCH,🐟 漏网之鱼
