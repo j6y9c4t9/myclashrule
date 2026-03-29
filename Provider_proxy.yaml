@@ -12,6 +12,7 @@ payload:
   - DOMAIN-SUFFIX,wiki.metacubex.one
   - DOMAIN-SUFFIX,api.dler.io
   - DOMAIN-SUFFIX,api.ytools.cc
+  - DOMAIN-SUFFIX,liangxin.xyz
   - DOMAIN-KEYWORD,tirn.top
   #docker
   - DOMAIN,d1q6f0aelx0por.cloudfront.net
