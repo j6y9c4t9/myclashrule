@@ -1,225 +1,225 @@
+
+
+# --- 基础配置 ---
 port: 7890
 socks-port: 7891
 allow-lan: true
 mode: rule
 log-level: info
 external-controller: :9090
+
+# --- DNS 优化 (防止 DNS 污染，提升 AI 与流媒体访问速度) ---
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5 # 阿里 DNS
+    - 119.29.29.29 # 腾讯 DNS
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    - tls://dns.google
+
+# --- 代理集合 (请在此处填入你的订阅链接) ---
 proxy-providers:
- A :
+  A:
     type: http
-    path: ./ProxySet/Alvin/AlvinDad_Provider_A.yaml
-    url: "机场订阅地址"
+    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR_A.yaml
+    url: "你的订阅链接" # <--- 填入之前代码中的 URL
     interval: 21600
-    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
+    exclude-filter: '家宽|冷门|重置|剩余|到期'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 60
- B:
+      interval: 150
+  B:
     type: http
-    path: ./ProxySet/Alvin/AlvinDad_Provider_B.yaml
-    url: "机场订阅地址"
+    path: ./ProxySet/Alvin/AlvinDad_Provider_ACL4SSR_B.yaml
+    url: "你的订阅链接" # <--- 填入之前代码中的 URL
     interval: 21600
-    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
+    exclude-filter: '家宽|冷门|重置|剩余|到期'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 60
- C:
+      interval: 150
+  C:
     type: http
     path: ./ProxySet/Alvin/AlvinDad_Provider_C.yaml
-    url: "机场订阅地址"
+    url: "你的订阅链接" # <--- 填入之前代码中的 URL
     interval: 21600
-    exclude-filter: '家宽|冷门|3.0x|重置|剩余|到期'
+    exclude-filter: '家宽|冷门|x|X|重置|剩余|到期|网址|Lite|lite'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 60
+      interval: 150
+
+# --- 策略组 ---
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
+      - ♻️ 自动选择2
+      - ✈️ 手动选择
       - 🔮 负载均衡
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
-      - ✈️ 手动选择
+      - 📺 Emby专用节点
       - DIRECT
-  - name: ✈️ 手动选择
-    type: select
-    include-all-providers: true
+
   - name: 🔮 负载均衡
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    exclude-filter: 'Emby|emby'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
-    strategy: consistent-hashing 
+    strategy: consistent-hashing
     include-all-providers: true
+
   - name: ♻️ 自动选择
     type: url-test
     tolerance: 50
     url: http://www.gstatic.com/generate_204
     exclude-filter: 'Emby|emby'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
+    interval: 300
     include-all-providers: true
+
+  - name: ♻️ 自动选择2
+    type: url-test
+    use: [A]
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: ✈️ 手动选择
+    type: select
+    include-all-providers: true
+
   - name: 🎯 国内流量
     type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
-      - ♻️ 自动选择
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 国内流量
+
   - name: 💬 Ai
     type: select
-    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|新加坡|坡|狮城|SG|Singapore'
-    exclude-filter: 'Emby|emby'
+    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|🇭🇰|HK|新加坡|SG'
     include-all-providers: true
+
   - name: 📹 YouTube
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
+
   - name: 🎥 Netflix
     type: select
     proxies:
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
+      - 🚀 节点选择
+
   - name: 🎬 EMBY
-    type: fallback
+    type: select
     proxies:
       - 📺 Emby专用节点
-      - ✈️ 手动选择
-      - DIRECT
+      - ♻️ 自动选择
       - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-    url: http://www.gstatic.com/generate_204
-    interval: 60
+      - ✈️ 手动选择
+
   - name: 🎵 Spotify
     type: select
     proxies:
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
       - 🚀 节点选择
+      - 🇸🇬 狮城节点
       - 🎯 国内流量
-      - ♻️ 自动选择
+
   - name: 🎶 TikTok
     type: select
     proxies:
       - 🚀 节点选择
       - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - ✈️ 手动选择
-      - 🎯 国内流量
+
   - name: 🌍 国外媒体
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 国内流量
+
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 国内流量
+
   - name: 📲 Telegram
     type: select
     proxies:
       - 🚀 节点选择
       - 🇸🇬 狮城节点
+
   - name: 👨‍💻 GitHub
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 国内流量
+
   - name: 🍎 苹果服务
     type: select
     proxies:
+      - DIRECT
       - 🎯 国内流量
       - 🚀 节点选择
+
   - name: Ⓜ️ 微软云盘
     type: select
     proxies:
+      - DIRECT
       - 🚀 节点选择
-      - 🎯 国内流量
+
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
+      - DIRECT
       - 🎯 国内流量
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
       - 🚀 节点选择
-  - name: 📺 Emby专用节点
-    type: url-test
-    tolerance: 50
-    url: http://www.gstatic.com/generate_204
-    exclude-filter: 'pro|Lite|lite'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
-    include-all-providers: true
+      - DIRECT
+      - 🎯 国内流量
+
+  # 区域自动优选
   - name: 🇭🇰 香港节点
     type: url-test
-    tolerance: 50
-    url: http://www.gstatic.com/generate_204
-    filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
+    filter: '港|HK|hk|Hong Kong|HongKong'
     include-all-providers: true
   - name: 🇨🇳 台湾节点
     type: url-test
-    tolerance: 50
-    url: http://www.gstatic.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
     include-all-providers: true
   - name: 🇸🇬 狮城节点
     type: url-test
-    tolerance: 50
-    url: http://www.gstatic.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
     include-all-providers: true
   - name: 🇯🇵 日本节点
     type: url-test
-    tolerance: 50
-    url: http://www.gstatic.com/generate_204
-    filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
+    filter: '日本|JP|Japan'
     include-all-providers: true
   - name: 🇺🇲 美国节点
     type: url-test
-    tolerance: 50
-    url: http://www.gstatic.com/generate_204
-    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
-    exclude-filter: 'Emby|emby'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
+    filter: '美|US|United States'
     include-all-providers: true
+  - name: 📺 Emby专用节点
+    type: url-test
+    exclude-filter: 'pro|Lite|lite'
+    include-all-providers: true
+
+# --- 规则集合 (Rule Providers) ---
 rule-providers:
   Provider_direct:
     type: http
@@ -258,23 +258,23 @@ rule-providers:
     path: ./providers/rule-provider_Copilot.yaml
     interval: 21600
   LAN:
-    behavior: classical 
     type: http
+    behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
-    interval: 21600
     path: ./ACL4SSR/LAN.yaml
+    interval: 21600
   UnBan:
-    behavior: classical 
     type: http
+    behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
-    interval: 21600
     path: ./ACL4SSR/UnBan.yaml
-  GoogleCN:
-    behavior: classical 
-    type: http
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
     interval: 21600
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
     path: ./ACL4SSR/GoogleCN.yaml
+    interval: 21600
   OneDrive:
     type: http
     behavior: classical
@@ -288,11 +288,11 @@ rule-providers:
     path: ./providers/rule-provider_Microsoft.yaml
     interval: 21600
   Apple:
-    behavior: classical 
     type: http
+    behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
-    interval: 21600
     path: ./ACL4SSR/Apple.yaml
+    interval: 21600
   YouTube:
     type: http
     behavior: classical
@@ -306,11 +306,11 @@ rule-providers:
     path: ./ACL4SSR/Netflix.yaml
     interval: 21600
   Telegram:
-    behavior: classical 
     type: http
+    behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
-    interval: 21600
     path: ./ACL4SSR/Telegram.yaml
+    interval: 21600
   TikTok:
     type: http
     behavior: classical
@@ -328,6 +328,12 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
     path: ./providers/rule-provider_Emby.yaml
+    interval: 21600
+  Emby_proxy:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
+    path: ./providers/rule-Emby_proxy.yaml
     interval: 21600
   ProxyMedia:
     type: http
@@ -348,42 +354,33 @@ rule-providers:
     path: ./ACL4SSR/ProxyGFWlist.yaml
     interval: 21600
   ChinaDomain:
-    behavior: classical 
     type: http
+    behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
-    interval: 21600
     path: ./ACL4SSR/ChinaDomain.yaml
-  ChinaCompanyIp:
-    behavior: ipcidr 
-    type: http
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
     interval: 21600
+  ChinaCompanyIp:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
     path: ./ACL4SSR/ChinaCompanyIp.yaml
+    interval: 21600
   Download:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
     path: ./ACL4SSR/Download.yaml
     interval: 21600
-  Emby_proxy:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
-    path: ./providers/rule-Emby_proxy.yaml
-    interval: 21600
+
+# --- 规则执行逻辑 ---
 rules:
   - RULE-SET,Provider_direct,DIRECT
-  - RULE-SET,Provider_proxy,🚀 节点选择
+  - RULE-SET,LAN,DIRECT
+  - RULE-SET,UnBan,DIRECT
   - RULE-SET,OpenAI,💬 Ai
   - RULE-SET,Claude,💬 Ai
   - RULE-SET,Gemini,💬 Ai
   - RULE-SET,Copilot,💬 Ai
-  - RULE-SET,LAN,DIRECT
-  - RULE-SET,UnBan,DIRECT
-  - RULE-SET,GoogleCN,🎯 国内流量
-  - RULE-SET,Apple,🍎 苹果服务
-  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,YouTube,📹 YouTube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,Telegram,📲 Telegram
@@ -391,12 +388,16 @@ rules:
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🎬 EMBY
   - RULE-SET,Emby_proxy,🎬 EMBY
+  - RULE-SET,GoogleCN,🎯 国内流量
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,ProxyMedia,🌍 国外媒体
+  - RULE-SET,Provider_proxy,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
-  - RULE-SET,Download,🎯 国内流量
+  - RULE-SET,Download,DIRECT
   - GEOIP,cn,🎯 国内流量
-  - MATCH,🐟 漏网之鱼
   - MATCH,🐟 漏网之鱼
