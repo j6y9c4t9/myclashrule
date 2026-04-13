@@ -13,13 +13,18 @@ dns:
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  default-nameserver: [223.5.5.5, 119.29.29.29]
   nameserver:
-    - https://dns.alicdn.com/dns-query # 阿里 DoH
-    - https://doh.pub/dns-query       # 腾讯 DoH
+    - https://dns.alicdn.com/dns-query
+    - https://doh.pub/dns-query
   fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
-    - tls://dns.google
+  # 重点：国内域名强制走国内解析，不问国外 DNS
+  nameserver-policy:
+    "geosite:cn": [https://dns.alicdn.com/dns-query, https://doh.pub/dns-query]
+    "geosite:apple": [https://doh.pub/dns-query]
+    "geosite:microsoft": [https://doh.pub/dns-query]
 
 # --- 代理集合 (请在此处填入你的订阅链接) ---
 proxy-providers:
