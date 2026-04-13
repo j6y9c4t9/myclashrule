@@ -1,65 +1,85 @@
-[custom]
+[common]
+# 基础设置
+api_url = http://127.0.0.1:25500
+dns_listen = 0.0.0.0:53
+dns_enable = true
+dns_fake_ip = true
 
-;设置规则标志位
+# 节点排除过滤 (对应你 yaml 中的 exclude-filter)
+exclude_remarks = (家宽|冷门|重置|剩余|到期|x|X|网址|Lite|lite)
 
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
-ruleset=🚀 国外流量,clash-classic:https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
-ruleset=💬 Ai,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
-ruleset=💬 Ai,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
-ruleset=💬 Ai,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
-ruleset=💬 Ai,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
-ruleset=Ⓜ️ 微软云盘,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml
-ruleset=Ⓜ️ 微软服务,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
-ruleset=🍎 苹果服务,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml
-ruleset=📹 YouTube,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
-ruleset=🎥 Netflix,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_Classical.yaml
-ruleset=📲 Telegram,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
-ruleset=🎶 TikTok,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
-ruleset=🎵 Spotify,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
-ruleset=🎬 EMBY,clash-classic:https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
-ruleset=🎬 EMBY,clash-classic:https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
-ruleset=🌍 国外媒体,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
-ruleset=🌏 国内媒体,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml
-ruleset=🚀 国外流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
-ruleset=🎯 国内流量,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
-ruleset=🎯 国内流量,[]GEOIP,CN
-ruleset=🐟 漏网之鱼,[]FINAL
+[proxy_group]
+# --- 1. 核心选择组 ---
+🚀 节点选择:select, ♻️ 自动选择, ♻️ 自动选择2, ✈️ 手动选择, 🔮 负载均衡, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 📺 Emby专用节点, DIRECT
+✈️ 手动选择:select, .*
+🔮 负载均衡:load-balance, .*, http://www.gstatic.com/generate_204, 150, consistent-hashing
 
-;设置规则标志位
+# --- 2. 自动化组 ---
+♻️ 自动选择:url-test, .*, http://www.gstatic.com/generate_204, 300,, 50
+# 自动选择2 仅限订阅源A（假设第一个订阅为A）
+♻️ 自动选择2:url-test, !!GROUP:A, http://www.gstatic.com/generate_204, 300,, 50
 
-;设置分组标志位
+# --- 3. 业务逻辑组 ---
+🎯 国内流量:select, DIRECT, 🚀 节点选择
+💬 Ai:select, []filter:美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|🇭🇰|HK|新加坡|SG
+📹 YouTube:select, 🚀 节点选择, ♻️ 自动选择
+🎥 Netflix:select, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🚀 节点选择
+🎬 EMBY:select, 📺 Emby专用节点, ♻️ 自动选择, 🇭🇰 香港节点, ✈️ 手动选择
+🎵 Spotify:select, 🚀 节点选择, 🇸🇬 狮城节点, 🎯 国内流量
+🎶 TikTok:select, 🚀 节点选择, 🇸🇬 狮城节点, 🇯🇵 日本节点
+🌍 国外媒体:select, 🚀 节点选择, 🎯 国内流量
+🌏 国内媒体:select, 🎯 国内流量, DIRECT
+📲 Telegram:select, 🚀 节点选择, 🇸🇬 狮城节点
+👨‍💻 GitHub:select, 🚀 节点选择, 🎯 国内流量
+🍎 苹果服务:select, DIRECT, 🎯 国内流量, 🚀 节点选择
+Ⓜ️ 微软云盘:select, DIRECT, 🚀 节点选择
+Ⓜ️ 微软服务:select, DIRECT, 🎯 国内流量
+🐟 漏网之鱼:select, 🚀 节点选择, DIRECT, 🎯 国内流量
 
-custom_proxy_group=🚀 国外流量`select`[]♻️ 自动选择`[]✈️ 手动选择
-custom_proxy_group=✈️ 手动选择`select`(^(?!.*(x|X|重置|剩余|到期|网址)).*)
-custom_proxy_group=🎯 国内流量`select`[]DIRECT
-custom_proxy_group=🐟 漏网之鱼`select`[]🚀 国外流量`[]🎯 国内流量
-custom_proxy_group=💬 Ai`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|美|US|United States|新加坡|坡|狮城|SG|Singapore).*)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=📹 YouTube`select`[]🚀 国外流量`[]♻️ 自动选择
-custom_proxy_group=🎥 Netflix`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点
-custom_proxy_group=🎬 EMBY`select`[]♻️ 自动选择`[]🎯 国内流量`[]🇭🇰 香港节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点
-custom_proxy_group=🎵 Spotify`select`[]🎯 国内流量`[]♻️ 自动选择
-custom_proxy_group=🎶 TikTok`select`[]🚀 国外流量`[]🎯 国内流量`[]✈️ 手动选择
-custom_proxy_group=🌍 国外媒体`select`[]🚀 国外流量`[]🎯 国内流量`[]♻️ 自动选择
-custom_proxy_group=🌏 国内媒体`select`[]🎯 国内流量
-custom_proxy_group=📲 Telegram`select`[]🚀 国外流量`[]🎯 国内流量`[]♻️ 自动选择`[]🇸🇬 狮城节点
-custom_proxy_group=🍎 苹果服务`select`[]🎯 国内流量`[]🚀 国外流量`[]♻️ 自动选择
-custom_proxy_group=Ⓜ️ 微软云盘`select`[]🚀 国外流量`[]🎯 国内流量`[]♻️ 自动选择
-custom_proxy_group=Ⓜ️ 微软服务`select`[]🎯 国内流量`[]🚀 国外流量`[]♻️ 自动选择
-custom_proxy_group=♻️ 自动选择`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇭🇰 香港节点`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*(港|HK|hk|Hong Kong|HongKong|hongkong).*)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇯🇵 日本节点`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan).*)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇺🇲 美国节点`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*(美|US|United States).*)`http://www.gstatic.com/generate_204`300,,150
-custom_proxy_group=🇨🇳 台湾节点`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*(台|新北|彰化|TW|Taiwan).*)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇸🇬 狮城节点`url-test`(^(?!.*(x|X|重置|剩余|到期|网址)).*(新加坡|坡|狮城|SG|Singapore).*)`http://www.gstatic.com/generate_204`300,,50
+# --- 4. 区域优选组 ---
+🇭🇰 香港节点:url-test, (港|HK|hk|Hong Kong|HongKong), http://www.gstatic.com/generate_204, 300,, 50
+🇨🇳 台湾节点:url-test, (台|新北|彰化|TW|Taiwan), http://www.gstatic.com/generate_204, 300,, 50
+🇸🇬 狮城节点:url-test, (新加坡|坡|狮城|SG|Singapore), http://www.gstatic.com/generate_204, 300,, 50
+🇯🇵 日本节点:url-test, (日本|JP|Japan), http://www.gstatic.com/generate_204, 300,, 50
+🇺🇲 美国节点:url-test, (美|US|United States), http://www.gstatic.com/generate_204, 300,, 50
+📺 Emby专用节点:url-test, []exclude:pro|Lite|lite, http://www.gstatic.com/generate_204, 300,, 50
 
-;设置分组标志位
+[rule_set]
+# 格式: 策略名,规则路径
+# 基础
+DIRECT,https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_direct.yaml
+DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+DIRECT,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
 
-enable_rule_generator=true
-overwrite_original_rules=true
+# AI 组
+💬 Ai,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+💬 Ai,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
+💬 Ai,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
+💬 Ai,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml
 
-;clash_rule_base=https://raw.githubusercontent.com/cutethotw/ClashRule/main/GeneralClashConfig.yml
+# 流媒体
+📹 YouTube,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
+🎥 Netflix,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
+📲 Telegram,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+🎶 TikTok,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
+🎵 Spotify,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
+🎬 EMBY,https://raw.githubusercontent.com/j6y9c4t9/emby/main/EMBY.yaml
+🎬 EMBY,https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Emby_proxy.yaml
+
+# 苹果/微软/GitHub
+🍎 苹果服务,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
+Ⓜ️ 微软云盘,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml
+Ⓜ️ 微软服务,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
+👨‍💻 GitHub,[]DOMAIN-KEYWORD,github
+
+# 国内与通用代理
+🎯 国内流量,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
+🌏 国内媒体,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia.yaml
+🌍 国外媒体,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
+🚀 节点选择,https://raw.githubusercontent.com/j6y9c4t9/myclashrule/main/Provider_proxy.yaml
+🚀 节点选择,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
+🎯 国内流量,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
+🎯 国内流量,[]GEOIP,CN
+
+# 下载与兜底
+DIRECT,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml
