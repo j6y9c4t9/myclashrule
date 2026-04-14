@@ -402,5 +402,5 @@ rules:
   - RULE-SET,ChinaDomain,🎯 国内流量
   - RULE-SET,ChinaCompanyIp,🎯 国内流量
   - RULE-SET,Download,DIRECT
-  - GEOIP,cn,🎯 国内流量,no-resolve
+  - GEOIP,cn,🎯 国内流量
   - MATCH,🐟 漏网之鱼
