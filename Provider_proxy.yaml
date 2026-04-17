@@ -1,6 +1,6 @@
 payload:
   #DOMAIN-SUFFIX,aca.dog
-  - DOMAIN-SUFFIX,a.nel.cloudflare.com
+  - DOMAIN-KEYWORD,cloudflare
   - DOMAIN-SUFFIX,xn--9kqz23b19z.com
   - DOMAIN-SUFFIX,ccwu.cc
   - DOMAIN-SUFFIX,hutao.cloud
