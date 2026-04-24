@@ -287,7 +287,7 @@ rule-providers:
     type: http
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
     interval: 21600
-    path: ./ACL4SSR/LAN.yaml
+    path: ./providers/rule-provider_LAN.yaml
   UnBan:
     behavior: classical 
     type: http
