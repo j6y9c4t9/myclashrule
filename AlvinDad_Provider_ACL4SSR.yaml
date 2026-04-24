@@ -279,12 +279,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml
     path: ./providers/rule-provider_Copilot.yaml
     interval: 21600
-  LocalAreaNetwork:
+  LAN:
     behavior: classical # domain, ipcidr or classical (premium core only)
     type: http
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
     interval: 21600
-    path: ./ACL4SSR/LocalAreaNetwork.yaml
+    path: ./ACL4SSR/LAN.yaml
   UnBan:
     behavior: classical 
     type: http
@@ -400,7 +400,7 @@ rules:
   - RULE-SET,Claude,💬 Ai
   - RULE-SET,Gemini,💬 Ai
   - RULE-SET,Copilot,💬 Ai
-  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,LAN,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,GoogleCN,🎯 国内流量
   - RULE-SET,Apple,🍎 苹果服务
