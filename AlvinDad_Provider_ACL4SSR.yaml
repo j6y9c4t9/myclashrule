@@ -6,6 +6,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 
+# --- 代理集合 (请在此处填入你的订阅链接) ---
 proxy-providers:
  A :
     type: http
@@ -37,29 +38,28 @@ proxy-providers:
       enable: true
       url: https://i.ytimg.com/generate_204
       interval: 60
-proxy-groups:
+roxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
+      - ♻️ 自动选择2
+      - ✈️ 手动选择
       - 🔮 负载均衡
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
-      - ✈️ 手动选择
+      - 📺 Emby专用节点
       - DIRECT
-  - name: ✈️ 手动选择
-    type: select
-    include-all-providers: true
   - name: 🔮 负载均衡
     type: load-balance
     url: https://i.ytimg.com/generate_204
     exclude-filter: 'Emby|emby'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
     strategy: consistent-hashing 
     include-all-providers: true
   - name: ♻️ 自动选择
@@ -67,9 +67,23 @@ proxy-groups:
     tolerance: 50
     url: https://i.ytimg.com/generate_204
     exclude-filter: 'Emby|emby'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
+    include-all-providers: true
+  - name: ♻️ 自动选择2
+    type: url-test
+    tolerance: 50
+    url: https://i.ytimg.com/generate_204
+    exclude-filter: 'Emby|emby'
+    interval: 300
+    timeout: 5000
+    max-failed-times: 3
+    use:
+    - 白嫖机场
+    - SSONE
+  - name: ✈️ 手动选择
+    type: select
     include-all-providers: true
   - name: 🎯 国内流量
     type: select
@@ -77,17 +91,41 @@ proxy-groups:
       - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
+  - name: 📺 Emby专用节点
+    type: url-test
+    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
+    tolerance: 50
+    url: https://i.ytimg.com/generate_204
+    interval: 300
+    timeout: 5000
+    max-failed-times: 3
+    use:
+    - 白嫖机场
+    - 良心云
+  - name: 🎬 EMBY
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - ♻️ 自动选择2
+      - 📺 Emby专用节点
+      - ✈️ 手动选择
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+    #url: https://i.ytimg.com/generate_204
+    interval: 300
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🎯 国内流量
       - 🚀 节点选择
+      - 🎯 国内流量
   - name: 💬 Ai
     type: select
-    proxies:
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇸🇬 狮城节点
+    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|新加坡|坡|狮城|SG|Singapore'
+    exclude-filter: 'Emby|emby'
+    include-all-providers: true
   - name: 📹 YouTube
     type: select
     proxies:
@@ -99,17 +137,7 @@ proxy-groups:
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
-  - name: 🎬 EMBY
-    type: fallback
-    proxies:
-      - 📺 Emby专用节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-    url: https://i.ytimg.com/generate_204
-    interval: 60
+      - ✈️ 手动选择
   - name: 🎵 Spotify
     type: select
     proxies:
@@ -121,6 +149,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 国内流量
       - ♻️ 自动选择
+      - ✈️ 手动选择
   - name: 🎶 TikTok
     type: select
     proxies:
@@ -166,51 +195,42 @@ proxy-groups:
     proxies:
       - 🎯 国内流量
       - 🚀 节点选择
-  - name: 📺 Emby专用节点
-    type: url-test
-    tolerance: 50
-    url: https://i.ytimg.com/generate_204
-    filter: 'Emby|emby|0.0x|0.01x'
-    exclude-filter: '3.0x'
-    interval: 60
-    timeout: 5000
-    max-failed-times: 5
-    include-all-providers: true
+
   - name: 🇭🇰 香港节点
     type: url-test
     tolerance: 50
     url: https://i.ytimg.com/generate_204
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
     include-all-providers: true
   - name: 🇨🇳 台湾节点
     type: url-test
     tolerance: 50
     url: https://i.ytimg.com/generate_204
     filter: '台|新北|彰化|TW|Taiwan'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
     include-all-providers: true
   - name: 🇸🇬 狮城节点
     type: url-test
     tolerance: 50
     url: https://i.ytimg.com/generate_204
     filter: '新加坡|坡|狮城|SG|Singapore'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
     include-all-providers: true
   - name: 🇯🇵 日本节点
     type: url-test
     tolerance: 50
     url: https://i.ytimg.com/generate_204
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
     include-all-providers: true
   - name: 🇺🇲 美国节点
     type: url-test
@@ -218,9 +238,9 @@ proxy-groups:
     url: https://i.ytimg.com/generate_204
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     exclude-filter: 'Emby|emby'
-    interval: 60
+    interval: 300
     timeout: 5000
-    max-failed-times: 5
+    max-failed-times: 3
     include-all-providers: true
 rule-providers:
   Provider_direct:
