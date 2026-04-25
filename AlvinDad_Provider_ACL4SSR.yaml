@@ -282,9 +282,9 @@ rule-providers:
   LAN:
     behavior: classical # domain, ipcidr or classical (premium core only)
     type: http
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 21600
-    path: ./providers/rule-provider_LAN.yaml
+    path: ./ACL4SSR/LAN.yaml
   UnBan:
     behavior: classical 
     type: http
