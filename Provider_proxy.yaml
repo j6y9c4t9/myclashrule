@@ -13,6 +13,7 @@ payload:
   - DOMAIN-SUFFIX,api.dler.io
   - DOMAIN-SUFFIX,api.ytools.cc
   - DOMAIN-SUFFIX,liangxin.xyz
+  - DOMAIN-SUFFIX,ssone.io
   - DOMAIN-KEYWORD,immersivetranslate
   #docker
   - DOMAIN,d1q6f0aelx0por.cloudfront.net
