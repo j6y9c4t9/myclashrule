@@ -15,6 +15,7 @@ payload:
   - DOMAIN-SUFFIX,liangxin.xyz
   - DOMAIN-SUFFIX,ssone.io
   - DOMAIN-KEYWORD,immersivetranslate
+  - IP-CIDR,8.8.8.8/32
   #docker
   - DOMAIN,d1q6f0aelx0por.cloudfront.net
   - DOMAIN,d2wy8f7a9ursnm.cloudfront.net
