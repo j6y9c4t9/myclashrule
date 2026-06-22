@@ -6,7 +6,7 @@ x-base-provider: &base-provider
     enable: true
     url: 'https://www.google.com/generate_204'
     interval: 300
-  exclude-filter: '(?i)家宽|冷门|重置|剩余|到期|官网|直连|网址|倍率|高倍|\d+(\.\d+)?(x|倍)'
+  exclude-filter: '(?i)家宽|冷门|重置|剩余|到期|官网|直连|网址|倍率|高倍|(^|[^.\d])(([2-9]\d*|1\d+)(\.\d+)?|1\.[1-9]\d*)(x|倍)|lite'
 
 x-url-test: &url-test
   type: url-test
@@ -32,14 +32,14 @@ x-fallback: &fallback
   interval: 300
   empty-fallback: REJECT
 
-x-filter-hk: &filter-hk "(?i)港|hk|hongkong|hong kong"
-x-filter-tw: &filter-tw "(?i)台|tw|taiwan|taipei"
-x-filter-jp: &filter-jp "(?i)日|jp|japan|tokyo"
-x-filter-sg: &filter-sg "(?i)新|sg|singapore"
-x-filter-kr: &filter-kr "(?i)韩|kr|korea|seoul"
-x-filter-us: &filter-us "(?i)美|us|usa|america|united states"
-x-filter-emby: &filter-emby "(?i)美|us|usa|america|united states|港|hk|hongkong|hong kong|台|tw|taiwan|taipei"
-x-filter-ai: &filter-ai "(?i)美|us|usa|america|united states|台|tw|taiwan|taipei|日|jp|japan|tokyo|新|sg|singapore"
+x-filter-hk: &filter-hk '^(?i)(?=[^-]*(-|$)).*(港|hk|hongkong|hong kong|🇭🇰)'
+x-filter-tw: &filter-tw '^(?i)(?=[^-]*(-|$)).*(台|tw|taiwan|taipei|🇹🇼)'
+x-filter-jp: &filter-jp '^(?i)(?=[^-]*(-|$)).*(日|jp|japan|tokyo|🇯🇵)'
+x-filter-sg: &filter-sg '^(?i)(?=[^-]*(-|$)).*(新加坡|sg|singapore|🇸🇬|^新(?![线上最]))'
+x-filter-us: &filter-us '^(?i)(?=[^-]*(-|$)).*(美|us|usa|america|united states|🇺🇸)'
+x-filter-emby: &filter-emby '^(?i)(?=[^-]*(-|$)).*(美|us|usa|america|united states|日|jp|japan|tokyo)'
+#x-filter-emby: &filter-emby '(?i)0\.[1-9]\d*(x|倍)'
+x-filter-ai: &filter-ai '^(?i)(?=[^-]*(-|$)).*(美|us|usa|america|united states|台|tw|taiwan|taipei|日|jp|japan|tokyo|新加坡|sg|singapore|^新(?![线上最]))'
 
 x-oversea: &oversea
   - 故障转移
@@ -48,7 +48,6 @@ x-oversea: &oversea
   - 台湾策略
   - 日本策略
   - 狮城策略
-  - 韩国策略
   - 美国策略
   - Emby策略
   - DIRECT
@@ -57,7 +56,6 @@ x-ai: &ai
   - 美国策略  
   - 狮城策略
   - 日本策略
-  - 韩国策略
   - 台湾策略
   - 香港策略
 
@@ -69,7 +67,6 @@ x-direct: &direct
   - 台湾策略
   - 日本策略
   - 狮城策略
-  - 韩国策略
   - 美国策略
 
 x-us-first: &us-first
@@ -80,7 +77,6 @@ x-us-first: &us-first
   - 台湾策略
   - 日本策略
   - 狮城策略
-  - 韩国策略
 
 x-hk-first: &hk-first
   - 香港策略
@@ -99,7 +95,6 @@ x-sg-first: &sg-first
   - 香港策略
   - 台湾策略
   - 日本策略
-  - 韩国策略
   - 美国策略
 
 x-jp-first: &jp-first
@@ -109,7 +104,6 @@ x-jp-first: &jp-first
   - 香港策略
   - 台湾策略
   - 狮城策略
-  - 韩国策略
   - 美国策略
 
 x-ipcidr_mrs: &ipcidr_mrs
@@ -158,78 +152,6 @@ proxy-providers:
     url: ""
     override:
       additional-prefix: '[主] '
-
-  备:
-    <<: *base-provider
-    url: ""
-    override:
-      additional-prefix: '[备] '
-
-# 基础设置
-mode: rule
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7895
-ipv6: false
-allow-lan: false
-unified-delay: true
-tcp-concurrent: true
-log-level: silent
-bind-address: '*'
-find-process-mode: 'always'
-keep-alive-interval: 15
-keep-alive-idle: 600
-authentication:
-  - mihomo:yyds666
-skip-auth-prefixes:
-  - 127.0.0.1/8
-  - '::1/128'
-experimental:
-  quic-go-disable-gso: true
-
-# 控制面板
-external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
-external-ui-name: zashboard
-external-ui: ui
-external-controller: 127.0.0.1:9090
-secret: yyds666
-profile:
-  store-selected: true
-  store-fake-ip: true
-
-# 流量嗅探
-sniffer:
-  enable: true
-  sniff:
-    HTTP:
-      ports:
-        - 80
-        - 8080-8880
-      override-destination: true
-    TLS:
-      ports:
-        - 443
-        - 8443
-    QUIC:
-      ports:
-        - 443
-        - 8443
-  skip-domain:
-    - "Mijia Cloud"
-    - "+.push.apple.com"
-
-# TUN模式
-tun:
-  enable: false
-  stack: mixed
-  dns-hijack:
-    - "any:53"
-    - "tcp://any:53"
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
 
 # DNS设置
 dns:
@@ -341,7 +263,6 @@ proxy-groups:
       - 狮城策略  
       - 日本策略
       - 美国策略
-      - 韩国策略
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/ULB.png
 
   # 手动选择
@@ -358,7 +279,6 @@ proxy-groups:
     #exclude-filter: '(?i)\[SS\]|SSONE'
     proxies:
       - Emby自动
-      - Emby均衡
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Media.png
   
   - name: 香港策略
@@ -367,7 +287,6 @@ proxy-groups:
     filter: *filter-hk
     proxies:
       - 香港自动
-      - 香港均衡
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png
 
   - name: 台湾策略
@@ -376,7 +295,6 @@ proxy-groups:
     filter: *filter-tw
     proxies:
       - 台湾自动
-      - 台湾均衡
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png
 
   - name: 日本策略
@@ -385,7 +303,6 @@ proxy-groups:
     filter: *filter-jp
     proxies:
       - 日本自动
-      - 日本均衡
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png
 
   - name: 狮城策略
@@ -394,17 +311,7 @@ proxy-groups:
     filter: *filter-sg
     proxies:
       - 狮城自动
-      - 狮城均衡
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png
-
-  - name: 韩国策略
-    type: select
-    include-all: true
-    filter: *filter-kr
-    proxies:
-      - 韩国自动
-      - 韩国均衡
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Korea.png
 
   - name: 美国策略
     type: select
@@ -412,14 +319,13 @@ proxy-groups:
     filter: *filter-us
     proxies:
       - 美国自动
-      - 美国均衡
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png
 
   # 自动测速
   - name: Emby自动
     <<: *url-test
     filter: *filter-emby
-    #exclude-filter: '(?i)\[SS\]|SSONE'
+    exclude-filter: '(?i)\[SS\]|SSONE'
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
   
   - name: 香港自动
@@ -442,52 +348,10 @@ proxy-groups:
     filter: *filter-sg
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
 
-  - name: 韩国自动
-    <<: *url-test
-    filter: *filter-kr
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
-
   - name: 美国自动
     <<: *url-test
     filter: *filter-us
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
-
-  # 负载均衡
-  - name: Emby均衡
-    <<: *load-balance
-    filter: *filter-emby
-    #exclude-filter: '(?i)\[SS\]|SSONE'
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
-  
-  - name: 香港均衡
-    <<: *load-balance
-    filter: *filter-hk
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
-
-  - name: 台湾均衡
-    <<: *load-balance
-    filter: *filter-tw
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
-
-  - name: 日本均衡
-    <<: *load-balance
-    filter: *filter-jp
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
-
-  - name: 狮城均衡
-    <<: *load-balance
-    filter: *filter-sg
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
-
-  - name: 韩国均衡
-    <<: *load-balance
-    filter: *filter-kr
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
-
-  - name: 美国均衡
-    <<: *load-balance
-    filter: *filter-us
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png
 
 # 规则路由
 rules:
