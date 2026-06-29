@@ -32,14 +32,14 @@ x-fallback: &fallback
   interval: 300
   empty-fallback: REJECT
 
-x-filter-hk: &filter-hk '(?iu).*(hksar|hk|hong[\s_-]*kong|港|香港|🇭🇰).*'
-x-filter-tw: &filter-tw '(?iu).*(tw|taiwan|taipei|台|台湾|🇹🇼).*'
-x-filter-jp: &filter-jp '(?iu).*(jp|japan|tokyo|日|日本|🇯🇵).*'
-x-filter-sg: &filter-sg '(?iu).*(sg|singapore|坡|新加坡|🇸🇬).*'
-x-filter-us: &filter-us '(?iu).*(us|usa|america|united[\s_-]*states|美|美国|🇺🇸).*'
-x-filter-emby: &filter-emby '(?iu).*(us|usa|america|united[\s_-]*states|美|美国|🇺🇸|jp|japan|tokyo|日|日本|🇯🇵).*'
+x-filter-hk: &filter-hk '(?i).*(hksar|hk|hong[\s_-]*kong|港|香港|🇭🇰).*'
+x-filter-tw: &filter-tw '(?i).*(tw|taiwan|taipei|台湾|台|🇹🇼).*'
+x-filter-jp: &filter-jp '(?i).*(jp|japan|tokyo|日本|日|🇯🇵).*'
+x-filter-sg: &filter-sg '(?i).*(sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
+x-filter-us: &filter-us '(?i).*(us|usa|america|united[\s_-]*states|美国|美|🇺🇸).*'
+x-filter-emby: &filter-emby '(?i).*(hksar|hk|hong[\s_-]*kong|香港|港|🇭🇰|jp|japan|tokyo|日本|日|🇯🇵).*'
 #x-filter-emby: &filter-emby '(?i)0\.[1-9]\d*(x|倍)'
-x-filter-ai: &filter-ai '(?iu).*(us|usa|america|united[\s_-]*states|美|美国|🇺🇸|tw|taiwan|taipei|台|台湾|🇹🇼|jp|japan|tokyo|日|日本|🇯🇵|sg|singapore|坡|新加坡|🇸🇬).*'
+x-filter-ai: &filter-ai '(?i).*(us|usa|america|united[\s_-]*states|美国|美|🇺🇸|tw|taiwan|taipei|台湾|台|🇹🇼|jp|japan|tokyo|日本|日|🇯🇵|sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
 
 x-oversea: &oversea
   - 故障转移
