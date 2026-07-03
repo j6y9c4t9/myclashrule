@@ -1,12 +1,12 @@
 # 锚点配置
 x-base-provider: &base-provider
   type: http
-  interval: 86400
+  interval: 21600
   health-check:
     enable: true
     url: 'https://www.google.com/generate_204'
     interval: 300
-  exclude-filter: '(?i)家宽|冷门|重置|剩余|到期|官网|直连|网址|倍率|高倍|(\b|[^\d])(([2-9]\d*|1\d+)(\.\d+)?|1\.[1-9]\d*)(x|倍)'
+  exclude-filter: '(?i)家宽|冷门|重置|剩余|到期|官网|直连|网址|倍率|高倍|trojan|(\b|[^\d])(([2-9]\d*|1\d+)(\.\d+)?|1\.[1-9]\d*)(x|倍)'
 
 x-url-test: &url-test
   type: url-test
@@ -16,6 +16,7 @@ x-url-test: &url-test
   include-all: true
   hidden: true
   tolerance: 50
+  lazy: false 
 
 x-load-balance: &load-balance
   type: load-balance
@@ -31,15 +32,17 @@ x-fallback: &fallback
   url: "https://www.gstatic.com/generate_204"
   interval: 300
   empty-fallback: REJECT
+  lazy: false 
 
 x-filter-hk: &filter-hk '(?i).*(hksar|hk|hong[\s_-]*kong|香港|🇭🇰).*'
 x-filter-tw: &filter-tw '(?i).*(tw|taiwan|taipei|台湾|台北|🇹🇼).*'
 x-filter-jp: &filter-jp '(?i).*(jp|japan|tokyo|日本|🇯🇵).*'
 x-filter-sg: &filter-sg '(?i).*(sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
 x-filter-us: &filter-us '(?i).*(us|usa|america|united[\s_-]*states|美国|🇺🇸).*'
+#x-filter-emby: &filter-emby '.*'
 x-filter-emby: &filter-emby '(?i).*(hksar|hk|hong[\s_-]*kong|香港|🇭🇰|jp|japan|tokyo|日本|🇯🇵).*'
 #x-filter-emby: &filter-emby '(?i)0\.[1-9]\d*(x|倍)'
-x-filter-ai: &filter-ai '(?i).*(us|usa|america|united[\s_-]*states|美国|🇺🇸|tw|taiwan|taipei|台湾|台北|🇹🇼|jp|japan|tokyo|日本|🇯🇵|sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
+x-filter-ai: &filter-ai '(?i)^(?!.*\[G\]).*(us|usa|america|united[\s_-]*states|美国|🇺🇸|tw|taiwan|taipei|台湾|台北|🇹🇼|jp|japan|tokyo|日本|🇯🇵|sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
 
 x-oversea: &oversea
   - 故障转移
@@ -195,11 +198,18 @@ proxy-groups:
     proxies: *sg-first
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Twitter.png
     
+  - name: Claude
+    type: select
+    include-all: true
+    filter: *filter-ai
+  #  proxies: *ai
+    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png
+    
   - name: 人工智能
     type: select
     include-all: true
     filter: *filter-ai
-    proxies: *ai
+  #  proxies: *ai
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png
 
   - name: Spotify
@@ -325,7 +335,6 @@ proxy-groups:
   - name: Emby自动
     <<: *url-test
     filter: *filter-emby
-    exclude-filter: '(?i)\[SS\]|SSONE'
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
   
   - name: 香港自动
@@ -358,7 +367,7 @@ rules:
   # 广告拦截
   - RULE-SET,Tracking,广告拦截
   - RULE-SET,Advertising,广告拦截
-  #- AND,((DST-PORT,443),(NETWORK,UDP),(NOT,((GEOIP,CN,no-resolve)))),广告拦截
+  - AND,((DST-PORT,443),(NETWORK,UDP),(NOT,((GEOIP,CN,no-resolve)))),广告拦截
   
   # 本地/私有
   - RULE-SET,Private,DIRECT
@@ -381,6 +390,7 @@ rules:
   - RULE-SET,SocialMediaIP,社交平台,no-resolve
 
   # 人工智能
+  - RULE-SET,Claude,Claude
   - RULE-SET,AI,人工智能
   - RULE-SET,AIIP,人工智能,no-resolve
   
@@ -458,6 +468,10 @@ rule-providers:
     <<: *domain_mrs
    # url: https://github.com/666OS/rules/raw/release/mihomo/domain/AI.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
+    
+  Claude:
+    <<: *domain_mrs
+    url: https://raw.githubusercontent.com/666OS/rules/refs/heads/release/mihomo/domain/Claude.mrs
     
   Download:
     <<: *domain_mrs
