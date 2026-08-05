@@ -13,6 +13,7 @@ payload:
   - DOMAIN-SUFFIX,liangxin.xyz
   - DOMAIN-SUFFIX,ssone.io
   - DOMAIN-SUFFIX,alvindad.ccwu.cc
+  - DOMAIN-SUFFIX,dotabuff.com
   #docker
   - DOMAIN,d1q6f0aelx0por.cloudfront.net
   - DOMAIN,d2wy8f7a9ursnm.cloudfront.net
