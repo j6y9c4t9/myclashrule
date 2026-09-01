@@ -1,12 +1,12 @@
 # 锚点配置
 x-base-provider: &base-provider
   type: http
-  interval: 21600
+  interval: 86400
   health-check:
     enable: true
     url: 'https://www.google.com/generate_204'
     interval: 300
-  exclude-filter: '(?i)家宽|冷门|重置|剩余|到期|官网|直连|网址|倍率|高倍|trojan|(\b|[^\d])(([2-9]\d*|1\d+)(\.\d+)?|1\.[1-9]\d*)(x|倍)'
+  exclude-filter: '(?i)家宽|冷门|重置|剩余|到期|官网|网址|倍率|高倍|(\b|[^\d])(([2-9]\d*|1\d+)(\.\d+)?|1\.[1-9]\d*)(x|倍)'
 
 x-url-test: &url-test
   type: url-test
@@ -39,9 +39,10 @@ x-filter-tw: &filter-tw '(?i).*(tw|taiwan|taipei|台湾|台北|🇹🇼).*'
 x-filter-jp: &filter-jp '(?i).*(jp|japan|tokyo|日本|🇯🇵).*'
 x-filter-sg: &filter-sg '(?i).*(sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
 x-filter-us: &filter-us '(?i).*(us|usa|america|united[\s_-]*states|美国|🇺🇸).*'
+x-filter-others: &filter-others '(?i)^(?!.*(hksar|hk|hong[\s_-]*kong|香港|🇭🇰|tw|taiwan|taipei|台湾|台北|🇹🇼|jp|japan|tokyo|日本|🇯🇵|sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬|us|usa|america|united[\s_-]*states|美国|🇺🇸)).*'
 #x-filter-emby: &filter-emby '.*'
-x-filter-emby: &filter-emby '(?i).*(hksar|hk|hong[\s_-]*kong|香港|🇭🇰|jp|japan|tokyo|日本|🇯🇵).*'
-#x-filter-emby: &filter-emby '(?i)0\.[1-9]\d*(x|倍)'
+#x-filter-emby: &filter-emby '(?i).*(tw|taiwan|taipei|台湾|台北|🇹🇼|jp|japan|tokyo|日本|🇯🇵|us|usa|america|united[\s_-]*states|美国|🇺🇸).*'
+x-filter-emby: &filter-emby '吹雪|稳连'
 x-filter-ai: &filter-ai '(?i)^(?!.*\[G\]).*(us|usa|america|united[\s_-]*states|美国|🇺🇸|tw|taiwan|taipei|台湾|台北|🇹🇼|jp|japan|tokyo|日本|🇯🇵|sg|singapore|sin[\s_-]*gapore|新加坡|坡|🇸🇬).*'
 
 x-oversea: &oversea
@@ -52,6 +53,7 @@ x-oversea: &oversea
   - 日本策略
   - 狮城策略
   - 美国策略
+  - 其他策略
   - Emby策略
   - DIRECT
 
@@ -61,6 +63,7 @@ x-ai: &ai
   - 日本策略
   - 台湾策略
   - 香港策略
+  - 其他策略
 
 x-direct: &direct
   - DIRECT
@@ -71,6 +74,7 @@ x-direct: &direct
   - 日本策略
   - 狮城策略
   - 美国策略
+  - 其他策略
 
 x-us-first: &us-first
   - 美国策略
@@ -80,6 +84,7 @@ x-us-first: &us-first
   - 台湾策略
   - 日本策略
   - 狮城策略
+  - 其他策略
 
 x-hk-first: &hk-first
   - 香港策略
@@ -90,6 +95,7 @@ x-hk-first: &hk-first
   - 狮城策略
   - 韩国策略
   - 美国策略
+  - 其他策略
 
 x-sg-first: &sg-first
   - 狮城策略
@@ -99,6 +105,7 @@ x-sg-first: &sg-first
   - 台湾策略
   - 日本策略
   - 美国策略
+  - 其他策略
 
 x-jp-first: &jp-first
   - 日本策略
@@ -108,6 +115,7 @@ x-jp-first: &jp-first
   - 台湾策略
   - 狮城策略
   - 美国策略
+  - 其他策略
 
 x-ipcidr_mrs: &ipcidr_mrs
   type: http
@@ -150,11 +158,19 @@ x-domain_text: &domain_text
 
 
 proxy-providers:
-  主:
+  P:
     <<: *base-provider
     url: ""
     override:
-      additional-prefix: '[主] '
+      additional-prefix: '[P] '
+
+proxy-providers:
+  B:
+    <<: *base-provider
+    url: ""
+    override:
+      additional-prefix: '[B] '
+
 
 # DNS设置
 dns:
@@ -217,18 +233,6 @@ proxy-groups:
     proxies: *direct
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Spotify.png
 
-  - name: EMBY
-    type: select
-    proxies: 
-      - Emby策略
-      - 全球手动
-      - 香港策略
-      - 台湾策略
-      - 日本策略
-      - 狮城策略
-      - 美国策略
-    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png
-
   - name: 国际媒体
     type: select
     proxies: *oversea
@@ -265,14 +269,29 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png
   
   # 自动选择
+  - name: EMBY
+    <<: *fallback
+    proxies: 
+      - Emby策略
+    #  - 全球手动
+      - 香港策略
+      - 台湾策略
+      - 日本策略
+      - 狮城策略
+      - 美国策略
+      - 其他策略
+    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png
+
   - name: 故障转移
     <<: *fallback
     proxies:
+ #     - Emby策略
       - 香港策略
+      - 日本策略
       - 台湾策略
       - 狮城策略  
-      - 日本策略
       - 美国策略
+      - 其他策略
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/ULB.png
 
   # 手动选择
@@ -286,7 +305,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: *filter-emby
-    #exclude-filter: '(?i)\[SS\]|SSONE'
+    #exclude-filter: '(?i)SS|白嫖'
     proxies:
       - Emby自动
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Media.png
@@ -331,10 +350,19 @@ proxy-groups:
       - 美国自动
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png
 
+  - name: 其他策略
+    type: select
+    include-all: true
+    filter: *filter-others
+    proxies:
+      - 其他自动
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png
+
   # 自动测速
   - name: Emby自动
     <<: *url-test
     filter: *filter-emby
+    #exclude-filter: '(?i)SS|稳连'
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
   
   - name: 香港自动
@@ -360,6 +388,11 @@ proxy-groups:
   - name: 美国自动
     <<: *url-test
     filter: *filter-us
+    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
+
+  - name: 其他自动
+    <<: *url-test
+    filter: *filter-others
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Auto.png
 
 # 规则路由
@@ -552,7 +585,7 @@ rule-providers:
 
   ProxyIP:
     <<: *ipcidr_mrs
-   # url: https://github.com/666OS/rules/raw/release/mihomo/ip/Proxy.mrs
+    #url: https://github.com/666OS/rules/raw/release/mihomo/ip/Proxy.mrs
     url: https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/refs/heads/ruleset/meta/ipcidr/gfw.mrs #gfw版本#
 
   ChinaIP:
