@@ -12,7 +12,7 @@ payload:
   - DOMAIN-SUFFIX,api.ytools.cc
   - DOMAIN-SUFFIX,liangxin.xyz
   - DOMAIN-SUFFIX,ssone.io
-  - DOMAIN-KEYWORD,wenliansub
+  - DOMAIN-SUFFIX,wenliansub.com
   - DOMAIN-SUFFIX,dotabuff.com
   #docker
   - DOMAIN,d1q6f0aelx0por.cloudfront.net
