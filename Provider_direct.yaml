@@ -1,11 +1,11 @@
 payload:
   #突然能直连的emby
   - DOMAIN-SUFFIX,pages.dev
+  - DOMAIN-SUFFIX,workers.dev
   - DOMAIN-SUFFIX,aefd.nelreports.net
   - DOMAIN-SUFFIX,liquipedia.net
   - DOMAIN-SUFFIX,imtintl.com
   - DOMAIN-SUFFIX,immersivetranslate.com
-  #- DOMAIN-SUFFIX,fastly.jsdelivr.net
   - DOMAIN-SUFFIX,dl.openwrt.ai
   #直连的emby
   - DOMAIN-SUFFIX,makima.online
