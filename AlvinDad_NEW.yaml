@@ -178,16 +178,30 @@ dns:
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  
   default-nameserver:
     - 119.29.29.29
+    - 114.114.114.114
     - 180.184.1.1
-    - 223.5.5.5
+    - 1.12.12.12
+
   nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://sm2.doh.pub/dns-query
+    
+  nameserver-policy:
+    abc.alvindad.ddns.ge: https://dns.alidns.com/dns-query
+    alvin-8v4.pages.dev: https://dns.alidns.com/dns-query
+    lingering-rice-3a24.alvindad.workers.dev: https://dns.alidns.com/dns-query
+    works.alvindad.us.ci: https://dns.alidns.com/dns-query
+    cloudflare-ech.com: https://dns.alidns.com/dns-query
+
   fake-ip-filter:
-    - "rule-set:fakeipfilter_domain"
-    - "rule-set:China"
+    - rule-set:fakeipfilter_domain
+    - rule-set:Direct
+    - rule-set:Private
+    - rule-set:China
     - +.miwifi.com
     - +.docker.io
     - +.market.xiaomi.com
