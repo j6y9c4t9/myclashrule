@@ -184,11 +184,11 @@ dns:
     - 114.114.114.114
     - 180.184.1.1
     - 1.12.12.12
+    - 223.5.5.5
 
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - https://sm2.doh.pub/dns-query
     
   nameserver-policy:
     abc.alvindad.ddns.ge: https://dns.alidns.com/dns-query
