@@ -1,10 +1,10 @@
 payload:
 # --- Microsoft 服务 ---
 # --- Copilot 核心对话与网页 ---
-  - DOMAIN-SUFFIX,copilot.microsoft.com         # Copilot 主域名
-  - DOMAIN-SUFFIX,api.microsoftapp.net          # 手机端 Copilot 依赖
-  - DOMAIN-SUFFIX,copilot.azure.com             # Azure Copilot
-  - DOMAIN-SUFFIX,openai.azure.com              # Azure OpenAI 服务  
-  - DOMAIN,edgeservices.bing.com                # Edge 浏览器侧边栏 AI
-  - DOMAIN,sydney.bing.com                      # Copilot 对话核心接口
-  - DOMAIN,img.bing.com                         # Bing AI 绘图功能
+  - DOMAIN-SUFFIX,copilot.microsoft.com    
+  - DOMAIN-SUFFIX,api.microsoftapp.net          
+  - DOMAIN-SUFFIX,copilot.azure.com            
+  - DOMAIN-SUFFIX,openai.azure.com            
+  - DOMAIN,edgeservices.bing.com           
+  - DOMAIN,sydney.bing.com                 
+  - DOMAIN,img.bing.com                    
